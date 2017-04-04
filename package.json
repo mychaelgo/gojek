@@ -1,6 +1,6 @@
 {
   "name": "gojek",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Gojek wrapper",
   "main": "./src/index.js",
   "repository": {
