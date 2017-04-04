@@ -21,4 +21,18 @@ module.exports = {
 
         request._request(options, '/gojek/v2/customer/logout', callback);
     },
+    getCutomerInfo :function(callback) {
+        var options = {
+            method : 'GET',
+        };
+
+        request._request(options, '/gojek/v2/customer', callback);
+    },
+    getGoPoints :function(callback) {
+        var options = {
+            method : 'GET',
+        };
+
+        request._request(options, '/gopoints/v1/wallet/points-balance', callback);
+    },
 };
