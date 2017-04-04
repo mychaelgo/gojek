@@ -1,0 +1,21 @@
+{
+  "name": "gojek",
+  "version": "1.0.2",
+  "description": "Gojek wrapper",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mychaelgo/gojek.git"
+  },
+  "author": "",
+  "license": "MTI",
+  "bugs": {
+    "url": "https://github.com/mychaelgo/gojek/issues"
+  },
+  "homepage": "https://github.com/mychaelgo/gojek#readme",
+  "dependencies": {
+    "querystring": "0.2.0",
+    "request": "2.81.0",
+    "xtend": "4.0.1"
+  }
+}
