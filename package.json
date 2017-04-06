@@ -14,7 +14,6 @@
   },
   "homepage": "https://github.com/mychaelgo/gojek#readme",
   "dependencies": {
-    "querystring": "0.2.0",
     "request": "2.81.0",
     "xtend": "4.0.1"
   }

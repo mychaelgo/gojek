@@ -1,11 +1,11 @@
 var request = require('./base-request');
 
 module.exports = {
-    getNearestGoMart: function(latLong, callback) {
+    getNearestGoMart: function (latLong, callback) {
         var options = {
-            method : 'GET',
-            qs:{
-	            location: latLong,
+            method: 'GET',
+            qs: {
+                location: latLong,
             }
         };
 

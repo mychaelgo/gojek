@@ -3,22 +3,22 @@ var uniqueId = '9774d56d682e549c';
 var appVersion = '2.18.1';
 
 module.exports = {
-    setToken : function(token){
+    setToken: function (token) {
         this.token = token;
     },
-    getToken: function (){
+    getToken: function () {
         return this.token;
     },
-    setUniqueId : function(uniqueId){
+    setUniqueId: function (uniqueId) {
         this.uniqueId = uniqueId;
     },
-    getUniqueId: function (){
+    getUniqueId: function () {
         return this.uniqueId || uniqueId;
     },
-    setAppVersion : function(appVersion){
+    setAppVersion: function (appVersion) {
         this.appVersion = appVersion;
     },
-    getAppVersion: function (){
+    getAppVersion: function () {
         return this.appVersion || appVersion;
     },
 }

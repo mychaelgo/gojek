@@ -5,11 +5,11 @@ var config = require('./config');
 var API_URL = 'https://api.gojekapi.com';
 
 module.exports = {
-    _request: function(options, url, callback){
+    _request: function (options, url, callback) {
         var getURL = API_URL + url;
         var opt = {
             url: getURL,
-            headers: { 
+            headers: {
                 'content-type': 'application/json',
                 'X-AppVersion': config.getAppVersion(),
                 'X-UniqueId': config.getUniqueId(),
