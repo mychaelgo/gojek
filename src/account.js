@@ -21,7 +21,7 @@ module.exports = {
 
         request._request(options, '/gojek/v2/customer/logout', callback);
     },
-    getCutomerInfo: function (callback) {
+    getCustomerInfo: function (callback) {
         var options = {
             method: 'GET',
         };
