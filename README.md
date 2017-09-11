@@ -80,8 +80,27 @@ gojek.setToken('access_token');
 ### Get nearest Go-Mart
 
 ## Go-Food
+### Get Go-Food Home
+```js
+gojek.setToken('ACCESS_TOKEN');
+gojek.setLocation('-6.180495,106.824992');
+gojek.getGoFoodHome(gojek.getLocation(), function (err, res, body) {
+    console.log(body);
+});
+```
 ### Get nearest Go-Food
 ### Get restaurant
+### Get restaurants by category
+- Param 1: Category code (Can be seen on get go-food home)
+- Param 2: Page number
+- Param 3: Limit per page
+```js
+gojek.setToken('ACCESS_TOKEN');
+gojek.setLocation('-6.180495,106.824992');
+gojek.getRestaurantsByCategory('HEALTHY_FOOD', '0', '32', function (err, res, body) {
+    console.log(body);
+});
+```
 
 ## Booking
 ### Get booking history
