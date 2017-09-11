@@ -1,6 +1,6 @@
 {
   "name": "gojek",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Gojek wrapper",
   "main": "./src/index.js",
   "repository": {
@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/mychaelgo/gojek#readme",
   "dependencies": {
+    "chance": "1.0.11",
     "request": "2.81.0",
     "xtend": "4.0.1"
   }

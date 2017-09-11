@@ -1,25 +1,53 @@
 var request = require('./base-request');
+var config = require('./config');
 
 module.exports = {
-    login: function (username, password, callback) {
+    loginWithEmail: function (email, callback) {
         var options = {
             method: 'POST',
             body: {
-                username: username,
-                client_id: 'trusted-client',
-                password: password,
-                grant_type: 'password'
+                email: email,
             }
         };
 
-        request._request(options, '/gojek/v2/login', callback);
+        request._request(options, '/v3/customers/login_with_email', callback);
+    },
+    loginWithPhone: function (phone, callback) {
+        var options = {
+            method: 'POST',
+            body: {
+                phone: phone,
+            }
+        };
+
+        request._request(options, '/v3/customers/login_with_phone', callback);
+    },
+    /**
+     *  @param otp OTP code from SMS
+     *  @param loginToken login_token value after calling function loginWithEmail or loginWithPhone
+     *
+     *  @return access_token This is customer token. User function gojek.setToken
+     */
+    generateCustomerToken: function (otp, loginToken, callback) {
+        var options = {
+            method: 'POST',
+            body: {
+                scopes: 'gojek:customer:transaction gojek:customer:readonly',
+                grant_type: 'password',
+                login_token: loginToken,
+                otp: otp,
+                client_id: 'gojek:cons:android',
+                client_secret: config.getClientSecret(),
+            }
+        };
+        request._request(options, '/v3/customers/token', callback);
     },
     logout: function (callback) {
         var options = {
-            method: 'POST',
+            method: 'DELETE',
         };
 
-        request._request(options, '/gojek/v2/customer/logout', callback);
+        request._request(options, '/v3/auth/token', callback);
     },
     getCustomerInfo: function (callback) {
         var options = {
@@ -27,13 +55,6 @@ module.exports = {
         };
 
         request._request(options, '/gojek/v2/customer', callback);
-    },
-    getGoPoints: function (callback) {
-        var options = {
-            method: 'GET',
-        };
-
-        request._request(options, '/gopoints/v1/wallet/points-balance', callback);
     },
     editAccount: function (phone, email, name, callback) {
         var options = {
