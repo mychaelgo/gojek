@@ -13,6 +13,7 @@ module.exports = {
                 'content-type': 'application/json',
                 'X-AppVersion': config.getAppVersion(),
                 'X-UniqueId': config.getUniqueId(),
+                'X-Location': config.getLocation(),
                 authorization: 'Bearer ' + config.getToken(),
             },
             json: true
