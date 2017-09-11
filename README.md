@@ -40,17 +40,33 @@ gojek.setToken('YOUR_TOKEN');
 
 ## Account
 ### Login
+Go-Jek support 2 method for login (Email or Phone number login)
+
 ```js
-gojek.login('your@email.com','yourPassword', function(error ,response, body){
+gojek.loginWithEmail('your@email.com', function(error ,response, body){
 	console.log(body);
 });
 ```
-After request this api, gojek maybe send a SMS like :
+
+```js
+gojek.loginWithPhone('+628123456789', function(error ,response, body){
+	console.log(body);
+});
 ```
-Apakah Anda mencoba mengakses akun Anda dari perangkat lain? Jika ya, mohon klik tautan ini https://api.gojek.co.id/customers/device?token=gojek_random_token dalam 72 jam ke depan. Jika tidak, mohon abaikan pesan ini 
-12:46
+
+After request that API, the registered phone number will receive an OTP. 
+You must save your `login_token` to be used in next step :
+
+```js
+gojek.generateCustomerToken('1234', 'login_token', function(error ,response, body){
+	console.log(body);
+});
 ```
-To verifiy your login event in new device for the first time. Simply click then link. Request this login API again, and violaa! You get your token!
+
+Save `access_token`, then call :
+```js
+gojek.setToken('access_token');
+```
 
 ### Logout
 
