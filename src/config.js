@@ -2,6 +2,7 @@ var token = '';
 var uniqueId = '9774d56d682e549c';
 var appVersion = '2.28.2';
 var clientSecret = '83415d06-ec4e-11e6-a41b-6c40088ab51e';
+var location = '-6.180495,106.824992';
 
 module.exports = {
     setToken: function (token) {
@@ -24,5 +25,11 @@ module.exports = {
     },
     getClientSecret: function () {
         return this.clientSecret || clientSecret;
+    },
+    setLocation: function (location) {
+        this.location = location;
+    },
+    getLocation: function () {
+        return this.location || location;
     },
 };
