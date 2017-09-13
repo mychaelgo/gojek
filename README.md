@@ -103,6 +103,25 @@ gojek.getRestaurantsByCategory('HEALTHY_FOOD', '0', '32', function (err, res, bo
 ```
 
 ## Booking
+### Get active booking
+```js 
+gojek.getActiveBooking(function (err, res, body) {
+    console.log(body);
+});
+```
+
 ### Get booking history
+```js
+gojek.getBookingHistory(function (err, res, body) {
+    console.log(body);
+});
+```
+
+### Get booking by order no
+```js
+gojek.getBookingByOrderNo('123456', function (err, res, body) {
+    console.log(body);
+});
+```
 
 
