@@ -8,12 +8,13 @@ module.exports = {
 
         request._request(options, '/wallet/profile/detailed', callback);
     },
-    getGoPayHistory: function (callback) {
+    // page start from 1
+    getGoPayHistory: function (page, limit, callback) {
         var options = {
             method: 'GET',
             qs: {
-                page: 1,
-                limit: 1000
+                page: page,
+                limit: limit
             }
         };
 

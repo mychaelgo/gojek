@@ -19,7 +19,7 @@ Use `token` for every request.
 See how to get token with login API
 
 ## Configuration
-By default the module set the `uniqueId` and `appVersion`. This value used to every request to the Go-Jek API. But you can set manually if you need.
+By default the module set the `location`, `uniqueId` and `appVersion`. This value used to every request to the Go-Jek API. You can set manually if you need.
 
 ### Set unique id
 ```js
@@ -72,12 +72,40 @@ gojek.setToken('access_token');
 
 ## Go-Pay
 ### Get Go-Pay info
+```js
+gojek.getGoPayDetail(function (err, res, body) {
+    console.log(body);
+});
+```
 ### Get Go-Pay transacation history 
+- Param 1: Page number (start from 1)
+- Param 2: Limit per page
+```js
+gojek.getGoPayHistory(1, 30, function (err, res, body) {
+    console.log(body);
+});
+```
 ### Get Go-Pay id by phone
+```js
+gojek.getGoPayQrId('+628123456789', function (err, res, body) {
+    console.log(body);
+});
+```
 ### Transfer Go-Pay money
+```js
+gojek.transferGoPay('QR_ID', 10000, 'YOUR_DESCRIPTION', function (err, res, body) {
+    console.log(body);
+});
+```
 
 ## Go-Mart
 ### Get nearest Go-Mart
+- Param 1: latitude,longitude
+```js
+gojek.getNearestGoMart('-6.180495,106.824992', function (err, res, body) {
+    console.log(body);
+});
+```
 
 ## Go-Food
 ### Get Go-Food Home
@@ -92,7 +120,7 @@ gojek.getGoFoodHome(gojek.getLocation(), function (err, res, body) {
 ### Get restaurant
 ### Get restaurants by category
 - Param 1: Category code (Can be seen on get go-food home)
-- Param 2: Page number
+- Param 2: Page number (start from 0)
 - Param 3: Limit per page
 ```js
 gojek.setToken('ACCESS_TOKEN');
