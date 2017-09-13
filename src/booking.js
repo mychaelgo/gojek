@@ -29,5 +29,12 @@ module.exports = {
 
         request._request(options, '/gojek/v2/booking/findByOrderNo/' + orderNo, callback);
     },
+    calculate: function (callback) {
+        var options = {
+            method: 'POST',
+            body: body
+        };
 
+        request._request(options, '/gojek/v2/calculate/gopay/', callback);
+    },
 };

@@ -68,6 +68,24 @@ Save `access_token`, then call :
 gojek.setToken('access_token');
 ```
 
+### Get customer info
+```js
+gojek.getCustomerInfo(function (err, res, body) {
+    console.log(body);
+});
+```
+
+### Edit account
+- Param 1: Phone
+- Param 2: Email
+- Param 3: Name
+```js
+gojek.editAccount('+628123456789','email@domain.com','NAME', function (err, res, body) {
+    console.log(body);
+});
+```
+
+
 ### Logout
 
 ## Go-Pay
@@ -117,7 +135,23 @@ gojek.getGoFoodHome(gojek.getLocation(), function (err, res, body) {
 });
 ```
 ### Get nearest Go-Food
+- Param 1: latitude,longitude
+- Param 2: Page (start from 0)
+- Param 3: Limit
+```js
+gojek.getNearestGoFood(gojek.getLocation(), 0, 10, function (err, res, body) {
+    console.log(body);
+});
+```
+
 ### Get restaurant
+- Param 1: Restaurant UUID
+```js
+gojek.getRestaurant('UUID', function (err, res, body) {
+    console.log(body);
+});
+```
+
 ### Get restaurants by category
 - Param 1: Category code (Can be seen on get go-food home)
 - Param 2: Page number (start from 0)
@@ -151,6 +185,8 @@ gojek.getBookingByOrderNo('123456', function (err, res, body) {
     console.log(body);
 });
 ```
+
+### Cancel booking
 
 ## Go-Points
 
