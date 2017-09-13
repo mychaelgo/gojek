@@ -77,7 +77,7 @@ gojek.getGoPayDetail(function (err, res, body) {
     console.log(body);
 });
 ```
-### Get Go-Pay transacation history 
+### Get Go-Pay transaction history 
 - Param 1: Page number (start from 1)
 - Param 2: Limit per page
 ```js
@@ -152,4 +152,25 @@ gojek.getBookingByOrderNo('123456', function (err, res, body) {
 });
 ```
 
+## Go-Points
 
+### Get Go-Points
+```js
+gojek.getGoPoints(function (err, res, body) {
+    console.log(body);
+});
+```
+
+### Next Go-Points
+```js
+gojek.nextPointsToken(function (err, res, body) {
+    console.log(body);
+});
+```
+
+### Redeem Go-Points
+```js
+gojek.redeemGoPointsToken('POINTS_TOKEN_ID',function (err, res, body) {
+    console.log(body);
+});
+```
