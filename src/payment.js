@@ -30,7 +30,7 @@ module.exports = {
 
         request._request(options, '/wallet/qr-code', callback);
     },
-    transferGoPay: function (qrId, amount, description, callback) {
+    transferGoPay: function (qrId, amount, description, pinCode, callback) {
         var options = {
             method: 'POST',
             body: {
@@ -38,8 +38,10 @@ module.exports = {
                 amount: amount,
                 description: description
             },
+            headers: {
+                pin: pinCode
+            }
         };
-
-        request._request(options, '/fund/transfer', callback);
+        request._request(options, '/v2/fund/transfer', callback);
     }
 };

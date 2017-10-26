@@ -19,6 +19,7 @@ module.exports = {
             json: true
         };
 
+        opt.headers = extend(opt.headers, options.headers)
         options = extend(options, opt);
 
         request(options, callback);
