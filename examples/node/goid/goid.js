@@ -1,4 +1,4 @@
-const { TokenApi } = require('../../sdk/goid-gojek-node');
+const { TokenApi } = require('../../../sdk/goid-gojek-node/dist');
 
 const tokenAPI = new TokenApi();
 

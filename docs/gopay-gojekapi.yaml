@@ -1,0 +1,756 @@
+openapi: 3.0.0
+info:
+  title: customer.gopayapi.com
+  version: 1.0.0
+servers:
+  - url: 'https://customer.gopayapi.com'
+    description: GoPay server
+paths:
+  /v1/users/kyc/status:
+    get:
+      summary: GET KYC status
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      status:
+                        type: string
+                      files:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            kyc_type:
+                              type: string
+                            kyc_status:
+                              type: string
+                            kyc_reason_title:
+                              type: string
+                            kyc_reason:
+                              type: string
+                            uploaded:
+                              type: boolean
+                  success:
+                    type: boolean
+                  errors:
+                    type: array
+                    items: {}
+      operationId: getUserKycStatus
+      tags:
+        - user
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+  /v1/users/profile:
+    get:
+      summary: GET profile
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      qr_id:
+                        type: string
+                      blocked:
+                        type: boolean
+                      is_pin_setup:
+                        type: boolean
+                  success:
+                    type: boolean
+                  errors:
+                    type: array
+                    items: {}
+      operationId: getUserProfile
+      tags:
+        - user
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+  /v1/payment-options/profiles:
+    get:
+      summary: GET profiles
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                        additional_details:
+                          type: object
+                          properties:
+                            kyc_name:
+                              type: string
+                            kyc_status:
+                              type: string
+                            group_id:
+                              type: string
+                  success:
+                    type: boolean
+      operationId: getPaymentOptions
+      tags:
+        - payment
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+  /v1/payment-options/balances:
+    get:
+      summary: GET balances
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        balance:
+                          type: object
+                          properties:
+                            value:
+                              type: number
+                            currency:
+                              type: string
+                            display_value:
+                              type: string
+                        type:
+                          type: string
+                        token:
+                          type: string
+                        country_code:
+                          type: string
+                  success:
+                    type: boolean
+      tags:
+        - payment
+      operationId: getBalances
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+  /v1/users/order-history/filter-config:
+    get:
+      summary: GET filter-config
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      country_filters:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            product_filters:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  display_text:
+                                    type: string
+                                  image_url:
+                                    type: string
+                            payment_filters:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  display_text:
+                                    type: string
+                                  image_url:
+                                    type: string
+                            country_code:
+                              type: string
+                      date_filter:
+                        type: object
+                        properties:
+                          min_date:
+                            type: string
+                          prefilled_dates:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                days:
+                                  type: number
+                                display_text:
+                                  type: string
+                      show_payment_type_filter:
+                        type: boolean
+                  success:
+                    type: boolean
+                  errors:
+                    type: array
+                    items: {}
+      tags:
+        - user
+      operationId: getFilterConfig
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+  /v1/bank-accounts:
+    get:
+      summary: GET bank-accounts
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        bank_code:
+                          type: string
+                        bank_short_name:
+                          type: string
+                        bank_name:
+                          type: string
+                        account_name:
+                          type: string
+                        account_number:
+                          type: string
+                        is_my_account:
+                          type: boolean
+                        metadata:
+                          type: object
+                          properties: {}
+                        is_withdrawal_blocked:
+                          type: boolean
+                        bank_icon_url:
+                          type: string
+                  success:
+                    type: boolean
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: number
+            default: 1
+        - name: page_size
+          in: query
+          required: false
+          schema:
+            type: number
+            default: 10
+        - name: sort_by
+          in: query
+          required: false
+          schema:
+            type: string
+            default: last_used_at
+        - name: descending
+          in: query
+          required: false
+          schema:
+            type: string
+            default: '1'
+        - name: show_withdrawal_block_status
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+      operationId: getBankAccounts
+      tags:
+        - bank-account
+  /v1/withdrawals/service-fee:
+    get:
+      summary: GET service-fee
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      amount:
+                        type: number
+                      service_fee:
+                        type: number
+                      total_amount:
+                        type: number
+                      currency:
+                        type: string
+                  success:
+                    type: boolean
+      parameters:
+        - name: amount
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+      tags:
+        - withdrawal
+      operationId: getServiceFee
+  /v1/users/order-history:
+    get:
+      summary: GET order-history
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      in_progress:
+                        type: array
+                        items: {}
+                      completed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            group_key:
+                              type: string
+                            items:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  order_id:
+                                    type: string
+                                  service_type:
+                                    type: string
+                                  status:
+                                    type: string
+                                  display_status:
+                                    type: string
+                                  order_timestamp:
+                                    type: string
+                                  order_image:
+                                    type: string
+                                  description:
+                                    type: string
+                                  payment_type:
+                                    type: string
+                                  amount:
+                                    type: object
+                                    properties:
+                                      value:
+                                        type: number
+                                      currency:
+                                        type: string
+                                      display_value:
+                                        type: string
+                                  payment_method_breakup:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        payment_method:
+                                          type: string
+                                        payment_method_name:
+                                          type: string
+                                        payment_method_image:
+                                          type: string
+                                        amount:
+                                          type: object
+                                          properties:
+                                            value:
+                                              type: number
+                                            currency:
+                                              type: string
+                                            display_value:
+                                              type: string
+                                        payment_type:
+                                          type: string
+                                  detail_description:
+                                    type: string
+                                  detail_view_items:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        label:
+                                          type: string
+                                        value:
+                                          type: string
+                                        separator:
+                                          type: boolean
+                                        copyable:
+                                          type: boolean
+                                  not_have_details:
+                                    type: boolean
+                                  expense_info:
+                                    type: object
+                                    properties:
+                                      category:
+                                        type: object
+                                        properties:
+                                          id:
+                                            type: string
+                                          description:
+                                            type: string
+                                          title:
+                                            type: string
+                                          icon_url:
+                                            type: string
+                                      is_expense:
+                                        type: boolean
+                                      section_title:
+                                        type: string
+                                      title:
+                                        type: string
+                                      description:
+                                        type: string
+                                      info_icon:
+                                        type: string
+                      next:
+                        type: string
+                      info_cards:
+                        type: array
+                        items: {}
+                  success:
+                    type: boolean
+                  errors:
+                    type: array
+                    items: {}
+      parameters:
+        - name: country_code
+          in: query
+          required: false
+          schema:
+            type: string
+            example: ID
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+      operationId: getOrderHistory
+      tags:
+        - user
+  '/v1/users/order-history/{order_id}/details':
+    get:
+      summary: GET order details
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      order_id:
+                        type: string
+                      service_type:
+                        type: string
+                      status:
+                        type: string
+                      display_status:
+                        type: string
+                      order_timestamp:
+                        type: string
+                      order_image:
+                        type: string
+                      description:
+                        type: string
+                      payment_type:
+                        type: string
+                      amount:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          currency:
+                            type: string
+                          display_value:
+                            type: string
+                      payment_method_breakup:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            payment_method:
+                              type: string
+                            payment_method_name:
+                              type: string
+                            payment_method_image:
+                              type: string
+                            amount:
+                              type: object
+                              properties:
+                                value:
+                                  type: number
+                                currency:
+                                  type: string
+                                display_value:
+                                  type: string
+                            payment_type:
+                              type: string
+                      list_notes:
+                        type: string
+                      detail_description:
+                        type: string
+                      detail_notes:
+                        type: string
+                      detail_view_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type: string
+                            separator:
+                              type: boolean
+                            copyable:
+                              type: boolean
+                      additional_details:
+                        type: object
+                        properties:
+                          p2p_notes:
+                            type: string
+                      not_have_details:
+                        type: boolean
+                      expense_info:
+                        type: object
+                        properties:
+                          category:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              description:
+                                type: string
+                              title:
+                                type: string
+                              icon_url:
+                                type: string
+                          is_expense:
+                            type: boolean
+                          section_title:
+                            type: string
+                          title:
+                            type: string
+                          description:
+                            type: string
+                          info_icon:
+                            type: string
+                  success:
+                    type: boolean
+                  errors:
+                    type: array
+                    items: {}
+      parameters:
+        - name: country_code
+          in: query
+          required: false
+          schema:
+            type: string
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+      operationId: getOrderDetails
+      description: ''
+      tags:
+        - user
+    parameters:
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+components:
+  parameters:
+    appVersion:
+      name: x-appversion
+      in: header
+      schema:
+        type: string
+        default: 4.59.1
+    appId:
+      name: x-appid
+      in: header
+      schema:
+        type: string
+        default: com.gojek.app
+    deviceOs:
+      name: x-deviceos
+      in: header
+      schema:
+        type: string
+        default: 'Android,10'
+    userType:
+      name: x-user-type
+      in: header
+      schema:
+        type: string
+        default: customer
+    phoneMake:
+      name: x-phonemake
+      in: header
+      schema:
+        type: string
+        default: Samsung
+    phoneModel:
+      name: x-phonemodel
+      in: header
+      schema:
+        type: string
+        default: GT-S7500
+    pushTokenType:
+      name: x-pushtokentype
+      in: header
+      schema:
+        type: string
+        default: FCM
+    platform:
+      name: x-platform
+      in: header
+      schema:
+        type: string
+        default: Android
+    uniqueId:
+      name: x-uniqueid
+      in: header
+      schema:
+        type: string
+        default: 95f99ddd6a5d34a9
+    gojekCountryCode:
+      name: gojek-country-code
+      in: header
+      required: false
+      schema:
+        type: string
+        default: ID
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+security:
+  - bearerToken: []
