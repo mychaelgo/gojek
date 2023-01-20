@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ClientId** | Pointer to **string** |  | [optional] [default to "gojek:consumer:app"]
 **ClientSecret** | Pointer to **string** |  | [optional] [default to "pGwQ7oi8bKqqwvid09UrjqpkMEHklb"]
 **CountryCode** | Pointer to **string** |  | [optional] [default to "+62"]
-**LoginType** | Pointer to **string** |  | [optional] [default to "otp_whatsapp"]
+**LoginType** | Pointer to **string** | possible value: otp_whatsapp, sms | [optional] [default to "otp_whatsapp"]
 **MagicLinkRef** | Pointer to **string** |  | [optional] 
 **PhoneNumber** | Pointer to **string** |  | [optional] 
 

@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: goid.gojekapi.com
-  version: 1.0.0
+  version: 1.0.1
 servers:
 - description: GoID server
   url: https://goid.gojekapi.com
@@ -100,6 +100,7 @@ paths:
                   type: string
                 login_type:
                   default: otp_whatsapp
+                  description: 'possible value: otp_whatsapp, sms'
                   type: string
                 magic_link_ref:
                   type: string
@@ -346,6 +347,7 @@ components:
           type: string
         login_type:
           default: otp_whatsapp
+          description: 'possible value: otp_whatsapp, sms'
           type: string
         magic_link_ref:
           type: string
