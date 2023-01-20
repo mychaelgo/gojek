@@ -3,6 +3,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Get balances](#get-balances)
+- [Get profile](#get-profile)
 - [Get KYC status](#get-kyc-status)
 - [Get bank accounts](#get-bank-accounts)
 
@@ -66,6 +67,56 @@ testGetBalances();
   "country_code": "ID"
  }],
  "success": true
+}
+```
+
+# Get profile
+
+Return profile
+
+```js
+const { UserApi, Configuration } = require('../../../sdk/gopay-gojek-node');
+
+const configuration = new Configuration({
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
+});
+
+const userAPI = new UserApi(configuration);
+
+const defaultHeaders = {
+    xAppid: 'com.gojek.app',
+    xAppversion: '4.59.1',
+    xDeviceos: 'Android,10',
+    xPhonemake: 'Samsung',
+    xPhonemodel: 'GT-S7500',
+    xPlatform: 'Android',
+    xPushtokentype: 'FCM',
+    xUniqueid: '95f99ddd6a5d34a9',
+    xUserType: 'customer',
+    gojekCountryCode: 'ID'
+};
+
+const testGetUserProfile = async () => {
+    
+    const getUserProfileResponse = await userAPI.getUserProfile({
+        ...defaultHeaders,
+    });
+
+    console.log(JSON.stringify(getUserProfileResponse.data));
+};
+
+testGetUserProfile();
+```
+
+```json
+{
+ "data": {
+  "qr_id": "...",
+  "blocked": false,
+  "is_pin_setup": true
+ },
+ "success": true,
+ "errors": []
 }
 ```
 
