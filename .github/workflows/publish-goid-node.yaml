@@ -3,7 +3,7 @@ name: Publish GoID Node to Github Package Registry
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   publish:
