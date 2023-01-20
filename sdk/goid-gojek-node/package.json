@@ -1,14 +1,14 @@
 {
-  "name": "goid-gojek",
+  "name": "@mychaelgo/goid-gojek",
   "version": "1.0.0",
-  "description": "OpenAPI client for goid-gojek",
+  "description": "OpenAPI client for @mychaelgo/goid-gojek",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
     "axios",
     "typescript",
     "openapi-client",
     "openapi-generator",
-    "goid-gojek"
+    "@mychaelgo/goid-gojek"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",
@@ -23,6 +23,9 @@
   "devDependencies": {
     "@types/node": "^12.11.5",
     "typescript": "^3.6.4"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
-, "publishConfig": { "@mychaelgo:registry": "https://npm.pkg.github.com" }
+, "repository": { "type": "git", "url": "git+https://github.com/mychaelgo/gojek.git" }
 }
