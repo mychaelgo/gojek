@@ -27,6 +27,10 @@ jobs:
     - name: Install dependencies
       working-directory: sdk/goid-gojek-node
       run: npm i
+    
+    - name: Build client
+      working-directory: sdk/goid-gojek-node
+      run: npm run build
 
     - name: Publish package
       run: npm publish

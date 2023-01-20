@@ -28,6 +28,10 @@ jobs:
       working-directory: sdk/gopay-gojek-node
       run: npm i
 
+    - name: Build client
+      working-directory: sdk/gopay-gojek-node
+      run: npm run build
+
     - name: Publish package
       run: npm publish
       working-directory: sdk/gopay-gojek-node
