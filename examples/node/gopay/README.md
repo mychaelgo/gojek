@@ -6,6 +6,7 @@
 - [Get payment options](#get-payment-options)
 - [Get profile](#get-profile)
 - [Get order history](#get-order-history)
+- [Get order details](#get-order-details)
 - [Get KYC status](#get-kyc-status)
 - [Get bank accounts](#get-bank-accounts)
 - [Get filter config](#get-filter-config)
@@ -277,6 +278,112 @@ getOrderHistory();
   }],
   "next": "/v1/users/order-history?country_code=ID&page=1&limit=20&lower_bound=2016-08-18T03%3A36%3A47&upper_bound=2023-01-01T07%3A00%3A00&skip_in_progress=true",
   "info_cards": []
+ },
+ "success": true,
+ "errors": []
+}
+```
+
+# Get order details
+
+Return order details by order id
+
+```js
+const { UserApi, Configuration } = require('../../../sdk/gopay-gojek-node');
+
+const configuration = new Configuration({
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
+});
+
+const userAPI = new UserApi(configuration);
+
+const defaultHeaders = {
+    xAppid: 'com.gojek.app',
+    xAppversion: '4.59.1',
+    xDeviceos: 'Android,10',
+    xPhonemake: 'Samsung',
+    xPhonemodel: 'GT-S7500',
+    xPlatform: 'Android',
+    xPushtokentype: 'FCM',
+    xUniqueid: '95f99ddd6a5d34a9',
+    xUserType: 'customer',
+    gojekCountryCode: 'ID'
+};
+
+const getOrderDetails = async () => {
+    
+    const getOrderDetailsResponse = await userAPI.getOrderDetails({
+        ...defaultHeaders,
+        orderId: 'xxx'
+    });
+
+    console.log(JSON.stringify(getOrderDetailsResponse.data));
+};
+
+getOrderDetails();
+```
+
+```json
+{
+ "data": {
+  "order_id": "xxx",
+  "service_type": "DYNAMIC_QR",
+  "status": "COMPLETED",
+  "display_status": "Completed",
+  "order_timestamp": "2022-10-22T01:02:03",
+  "order_image": "https://i.gojekapi.com/darkroom/nearby-cms-id/v2/images/995a2af3-748d-4fe6-9854-05efd596b42b_type=merchant_payment.png",
+  "description": "MCD",
+  "payment_type": "DEBIT",
+  "amount": {
+   "value": 1,
+   "currency": "IDR",
+   "display_value": "Rp1"
+  },
+  "payment_method_breakup": [{
+   "payment_method": "GOPAY_WALLET",
+   "payment_method_name": "GoPay",
+   "payment_method_image": "https://i.gojekapi.com/darkroom/nearby-cms-id/v2/images/33db65f6-be08-404f-ae2a-8df7cb33bded_GoPay.png",
+   "amount": {
+    "value": 1,
+    "currency": "IDR",
+    "display_value": "Rp1"
+   },
+   "payment_type": "DEBIT"
+  }],
+  "detail_description": "MCD",
+  "detail_view_items": [{
+   "label": "Acquirer Name",
+   "value": "gopay",
+   "separator": true,
+   "copyable": false
+  }, {
+   "label": "Merchant Name",
+   "value": "MCD",
+   "separator": false,
+   "copyable": false
+  }, {
+   "label": "Merchant Location",
+   "value": "JAKARTA",
+   "separator": false,
+   "copyable": false
+  }, {
+   "label": "Merchant PAN",
+   "value": "12312312",
+   "separator": false,
+   "copyable": true
+  }, {
+   "label": "Terminal ID",
+   "value": "A01",
+   "separator": false,
+   "copyable": true
+  }, {
+   "label": "Amount",
+   "value": "Rp1",
+   "separator": true,
+   "copyable": false
+  }],
+  "merchant_order_id": "UUID",
+  "not_have_details": false
  },
  "success": true,
  "errors": []
