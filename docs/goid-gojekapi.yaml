@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: goid.gojekapi.com
-  version: 1.0.0
+  version: 1.0.1
 servers:
   - url: 'https://goid.gojekapi.com'
     description: GoID server
