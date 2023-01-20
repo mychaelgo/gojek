@@ -336,6 +336,712 @@ export interface GetPickupSpotsResponseDataSourceLocation {
      */
     'suggested_visibility_radius'?: number;
 }
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponse
+ */
+export interface GetTransportEstimateResponse {
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetTransportEstimateResponse
+     */
+    'success'?: boolean;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseData}
+     * @memberof GetTransportEstimateResponse
+     */
+    'data'?: GetTransportEstimateResponseData;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseData
+ */
+export interface GetTransportEstimateResponseData {
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataOriginServiceArea}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'origin_service_area'?: GetTransportEstimateResponseDataOriginServiceArea;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataOriginServiceArea}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'destination_service_area'?: GetTransportEstimateResponseDataOriginServiceArea;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'currency'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'base_token'?: string;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataBusinessBooking}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'business_booking'?: GetTransportEstimateResponseDataBusinessBooking;
+    /**
+     * 
+     * @type {Array<GetTransportEstimateResponseDataServiceTypes>}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'service_types'?: Array<GetTransportEstimateResponseDataServiceTypes>;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataPromotion}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'promotion'?: GetTransportEstimateResponseDataPromotion;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataDisclaimer}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'disclaimer'?: GetTransportEstimateResponseDataDisclaimer;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'voucher_flow'?: string;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataUpsell}
+     * @memberof GetTransportEstimateResponseData
+     */
+    'upsell'?: GetTransportEstimateResponseDataUpsell;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataAllocationStrategy
+ */
+export interface GetTransportEstimateResponseDataAllocationStrategy {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataAllocationStrategy
+     */
+    'type'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataBusinessBooking
+ */
+export interface GetTransportEstimateResponseDataBusinessBooking {
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetTransportEstimateResponseDataBusinessBooking
+     */
+    'corporate_billing_applicable'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetTransportEstimateResponseDataBusinessBooking
+     */
+    'trip_profile_widget_enabled'?: boolean;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataBusinessBookingDescription}
+     * @memberof GetTransportEstimateResponseDataBusinessBooking
+     */
+    'description'?: GetTransportEstimateResponseDataBusinessBookingDescription;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataBusinessBookingOnboarding}
+     * @memberof GetTransportEstimateResponseDataBusinessBooking
+     */
+    'onboarding'?: GetTransportEstimateResponseDataBusinessBookingOnboarding;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataBusinessBookingDescription
+ */
+export interface GetTransportEstimateResponseDataBusinessBookingDescription {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingDescription
+     */
+    'heading'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingDescription
+     */
+    'subheading'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingDescription
+     */
+    'cta_text'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataBusinessBookingOnboarding
+ */
+export interface GetTransportEstimateResponseDataBusinessBookingOnboarding {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingOnboarding
+     */
+    'title'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingOnboarding
+     */
+    'subtitle'?: string;
+    /**
+     * 
+     * @type {Array<GetTransportEstimateResponseDataBusinessBookingOnboardingTerms>}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingOnboarding
+     */
+    'terms'?: Array<GetTransportEstimateResponseDataBusinessBookingOnboardingTerms>;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingOnboarding
+     */
+    'cta_text'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataBusinessBookingOnboardingTerms
+ */
+export interface GetTransportEstimateResponseDataBusinessBookingOnboardingTerms {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingOnboardingTerms
+     */
+    'icon_url'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataBusinessBookingOnboardingTerms
+     */
+    'text'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataDisclaimer
+ */
+export interface GetTransportEstimateResponseDataDisclaimer {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataDisclaimer
+     */
+    'message'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataInsuranceDetails
+ */
+export interface GetTransportEstimateResponseDataInsuranceDetails {
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetTransportEstimateResponseDataInsuranceDetails
+     */
+    'trip_insured'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataInsuranceDetails
+     */
+    'title'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataInsuranceDetails
+     */
+    'cta_link'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataOriginServiceArea
+ */
+export interface GetTransportEstimateResponseDataOriginServiceArea {
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataOriginServiceArea
+     */
+    'id'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataOriginServiceArea
+     */
+    'country_code'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataOriginServiceArea
+     */
+    'currency'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataOriginServiceArea
+     */
+    'tz_name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataPaymentMethods
+ */
+export interface GetTransportEstimateResponseDataPaymentMethods {
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'price_with_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'price_without_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'min_price_without_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'max_price_without_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'min_price_with_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'max_price_with_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'id'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'surge'?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'base_fare_with_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'base_fare_without_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'platform_fee'?: number;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataPriceRange}
+     * @memberof GetTransportEstimateResponseDataPaymentMethods
+     */
+    'price_range'?: GetTransportEstimateResponseDataPriceRange;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataPriceRange
+ */
+export interface GetTransportEstimateResponseDataPriceRange {
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPriceRange
+     */
+    'subtract_with_voucher'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPriceRange
+     */
+    'subtract_without_voucher'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataPromotion
+ */
+export interface GetTransportEstimateResponseDataPromotion {
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataPromotionBubble}
+     * @memberof GetTransportEstimateResponseDataPromotion
+     */
+    'bubble'?: GetTransportEstimateResponseDataPromotionBubble;
+    /**
+     * 
+     * @type {Array<GetTransportEstimateResponseDataPromotionBubble>}
+     * @memberof GetTransportEstimateResponseDataPromotion
+     */
+    'bubbles'?: Array<GetTransportEstimateResponseDataPromotionBubble>;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataPromotionBubble
+ */
+export interface GetTransportEstimateResponseDataPromotionBubble {
+    /**
+     * 
+     * @type {Array<GetTransportEstimateResponseDataPromotionBubblePromotionDetails>}
+     * @memberof GetTransportEstimateResponseDataPromotionBubble
+     */
+    'promotion_details'?: Array<GetTransportEstimateResponseDataPromotionBubblePromotionDetails>;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataPromotionBubbleExperimentDetail}
+     * @memberof GetTransportEstimateResponseDataPromotionBubble
+     */
+    'experiment_detail'?: GetTransportEstimateResponseDataPromotionBubbleExperimentDetail;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataPromotionBubbleExperimentDetail
+ */
+export interface GetTransportEstimateResponseDataPromotionBubbleExperimentDetail {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataPromotionBubbleExperimentDetail
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataPromotionBubbleExperimentDetail
+     */
+    'variant'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataPromotionBubblePromotionDetails
+ */
+export interface GetTransportEstimateResponseDataPromotionBubblePromotionDetails {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataPromotionBubblePromotionDetails
+     */
+    'text'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataPromotionBubblePromotionDetails
+     */
+    'cta_link'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataPromotionBubblePromotionDetails
+     */
+    'cta_title'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataPromotionBubblePromotionDetails
+     */
+    'payment_option'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataPromotionBubblePromotionDetails
+     */
+    'service_type'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataPromotionBubblePromotionDetails
+     */
+    'bubble_type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataPromotionBubblePromotionDetails
+     */
+    'text_type'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataRoute
+ */
+export interface GetTransportEstimateResponseDataRoute {
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataRoute
+     */
+    'eta'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataRoute
+     */
+    'distance_in_meters'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataRoute
+     */
+    'polyline'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataRoute
+     */
+    'route_type'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataServiceTypeDetails
+ */
+export interface GetTransportEstimateResponseDataServiceTypeDetails {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataServiceTypeDetails
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetTransportEstimateResponseDataServiceTypeDetails
+     */
+    'should_show_benefits'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataServiceTypes
+ */
+export interface GetTransportEstimateResponseDataServiceTypes {
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataRoute}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'route'?: GetTransportEstimateResponseDataRoute;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'id'?: number;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataServiceTypeDetails}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'service_type_details'?: GetTransportEstimateResponseDataServiceTypeDetails;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataInsuranceDetails}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'insurance_details'?: GetTransportEstimateResponseDataInsuranceDetails;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataAllocationStrategy}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'allocation_strategy'?: GetTransportEstimateResponseDataAllocationStrategy;
+    /**
+     * 
+     * @type {Array<GetTransportEstimateResponseDataAllocationStrategy>}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'allocation_strategies'?: Array<GetTransportEstimateResponseDataAllocationStrategy>;
+    /**
+     * 
+     * @type {Array<GetTransportEstimateResponseDataPaymentMethods>}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'payment_methods'?: Array<GetTransportEstimateResponseDataPaymentMethods>;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'pricing_token'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'pickup_eta'?: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'applicable_upsell'?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'service_provider'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataServiceTypes
+     */
+    'success'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataUpsell
+ */
+export interface GetTransportEstimateResponseDataUpsell {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsell
+     */
+    'title'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsell
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsell
+     */
+    'disclaimer'?: string;
+    /**
+     * 
+     * @type {Array<GetTransportEstimateResponseDataUpsellTypes>}
+     * @memberof GetTransportEstimateResponseDataUpsell
+     */
+    'types'?: Array<GetTransportEstimateResponseDataUpsellTypes>;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataUpsellBadge
+ */
+export interface GetTransportEstimateResponseDataUpsellBadge {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsellBadge
+     */
+    'title'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetTransportEstimateResponseDataUpsellTypes
+ */
+export interface GetTransportEstimateResponseDataUpsellTypes {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsellTypes
+     */
+    'title'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsellTypes
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetTransportEstimateResponseDataUpsellTypes
+     */
+    'opt_in'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsellTypes
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsellTypes
+     */
+    'price'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsellTypes
+     */
+    'product_name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetTransportEstimateResponseDataUpsellTypes
+     */
+    'product_code'?: string;
+    /**
+     * 
+     * @type {GetTransportEstimateResponseDataUpsellBadge}
+     * @memberof GetTransportEstimateResponseDataUpsellTypes
+     */
+    'badge'?: GetTransportEstimateResponseDataUpsellBadge;
+}
 
 /**
  * CustomerApi - axios parameter creator
@@ -806,6 +1512,116 @@ export const TransportApiAxiosParamCreator = function (configuration?: Configura
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary GET transport estimate
+         * @param {boolean} sendPrioritisedOrder 
+         * @param {number} userSelectedServiceType 
+         * @param {string} waypoints pickup coordinate | dropoff coodinate. Example: -6.188912,106.738236|-6.184608,106.736176
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTransportEstimate: async (sendPrioritisedOrder: boolean, userSelectedServiceType: number, waypoints: string, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sendPrioritisedOrder' is not null or undefined
+            assertParamExists('getTransportEstimate', 'sendPrioritisedOrder', sendPrioritisedOrder)
+            // verify required parameter 'userSelectedServiceType' is not null or undefined
+            assertParamExists('getTransportEstimate', 'userSelectedServiceType', userSelectedServiceType)
+            // verify required parameter 'waypoints' is not null or undefined
+            assertParamExists('getTransportEstimate', 'waypoints', waypoints)
+            const localVarPath = `/transport/v1/estimate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (sendPrioritisedOrder !== undefined) {
+                localVarQueryParameter['send_prioritised_order'] = sendPrioritisedOrder;
+            }
+
+            if (userSelectedServiceType !== undefined) {
+                localVarQueryParameter['user_selected_service_type'] = userSelectedServiceType;
+            }
+
+            if (waypoints !== undefined) {
+                localVarQueryParameter['waypoints'] = waypoints;
+            }
+
+            if (xPlatform !== undefined && xPlatform !== null) {
+                localVarHeaderParameter['x-platform'] = String(xPlatform);
+            }
+
+            if (gojekCountryCode !== undefined && gojekCountryCode !== null) {
+                localVarHeaderParameter['gojek-country-code'] = String(gojekCountryCode);
+            }
+
+            if (xUniqueid !== undefined && xUniqueid !== null) {
+                localVarHeaderParameter['x-uniqueid'] = String(xUniqueid);
+            }
+
+            if (xAppversion !== undefined && xAppversion !== null) {
+                localVarHeaderParameter['x-appversion'] = String(xAppversion);
+            }
+
+            if (xAppid !== undefined && xAppid !== null) {
+                localVarHeaderParameter['x-appid'] = String(xAppid);
+            }
+
+            if (xDeviceos !== undefined && xDeviceos !== null) {
+                localVarHeaderParameter['x-deviceos'] = String(xDeviceos);
+            }
+
+            if (xUserType !== undefined && xUserType !== null) {
+                localVarHeaderParameter['x-user-type'] = String(xUserType);
+            }
+
+            if (xPhonemake !== undefined && xPhonemake !== null) {
+                localVarHeaderParameter['x-phonemake'] = String(xPhonemake);
+            }
+
+            if (xPhonemodel !== undefined && xPhonemodel !== null) {
+                localVarHeaderParameter['x-phonemodel'] = String(xPhonemodel);
+            }
+
+            if (xPushtokentype !== undefined && xPushtokentype !== null) {
+                localVarHeaderParameter['x-pushtokentype'] = String(xPushtokentype);
+            }
+
+            if (xSessionId !== undefined && xSessionId !== null) {
+                localVarHeaderParameter['x-session-id'] = String(xSessionId);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -863,6 +1679,30 @@ export const TransportApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPickupSpots(location, serviceType, source, xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, xSessionId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * 
+         * @summary GET transport estimate
+         * @param {boolean} sendPrioritisedOrder 
+         * @param {number} userSelectedServiceType 
+         * @param {string} waypoints pickup coordinate | dropoff coodinate. Example: -6.188912,106.738236|-6.184608,106.736176
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTransportEstimate(sendPrioritisedOrder: boolean, userSelectedServiceType: number, waypoints: string, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetTransportEstimateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTransportEstimate(sendPrioritisedOrder, userSelectedServiceType, waypoints, xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, xSessionId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -917,6 +1757,29 @@ export const TransportApiFactory = function (configuration?: Configuration, base
          */
         getPickupSpots(location: string, serviceType: number, source: string, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options?: any): AxiosPromise<GetPickupSpotsResponse> {
             return localVarFp.getPickupSpots(location, serviceType, source, xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, xSessionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary GET transport estimate
+         * @param {boolean} sendPrioritisedOrder 
+         * @param {number} userSelectedServiceType 
+         * @param {string} waypoints pickup coordinate | dropoff coodinate. Example: -6.188912,106.738236|-6.184608,106.736176
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTransportEstimate(sendPrioritisedOrder: boolean, userSelectedServiceType: number, waypoints: string, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options?: any): AxiosPromise<GetTransportEstimateResponse> {
+            return localVarFp.getTransportEstimate(sendPrioritisedOrder, userSelectedServiceType, waypoints, xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, xSessionId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1125,6 +1988,111 @@ export interface TransportApiGetPickupSpotsRequest {
 }
 
 /**
+ * Request parameters for getTransportEstimate operation in TransportApi.
+ * @export
+ * @interface TransportApiGetTransportEstimateRequest
+ */
+export interface TransportApiGetTransportEstimateRequest {
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly sendPrioritisedOrder: boolean
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly userSelectedServiceType: number
+
+    /**
+     * pickup coordinate | dropoff coodinate. Example: -6.188912,106.738236|-6.184608,106.736176
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly waypoints: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xPlatform?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly gojekCountryCode?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xUniqueid?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xAppversion?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xAppid?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xDeviceos?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xUserType?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xPhonemake?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xPhonemodel?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xPushtokentype?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetTransportEstimate
+     */
+    readonly xSessionId?: string
+}
+
+/**
  * TransportApi - object-oriented interface
  * @export
  * @class TransportApi
@@ -1153,6 +2121,18 @@ export class TransportApi extends BaseAPI {
      */
     public getPickupSpots(requestParameters: TransportApiGetPickupSpotsRequest, options?: AxiosRequestConfig) {
         return TransportApiFp(this.configuration).getPickupSpots(requestParameters.location, requestParameters.serviceType, requestParameters.source, requestParameters.xPlatform, requestParameters.gojekCountryCode, requestParameters.xUniqueid, requestParameters.xAppversion, requestParameters.xAppid, requestParameters.xDeviceos, requestParameters.xUserType, requestParameters.xPhonemake, requestParameters.xPhonemodel, requestParameters.xPushtokentype, requestParameters.xSessionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary GET transport estimate
+     * @param {TransportApiGetTransportEstimateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TransportApi
+     */
+    public getTransportEstimate(requestParameters: TransportApiGetTransportEstimateRequest, options?: AxiosRequestConfig) {
+        return TransportApiFp(this.configuration).getTransportEstimate(requestParameters.sendPrioritisedOrder, requestParameters.userSelectedServiceType, requestParameters.waypoints, requestParameters.xPlatform, requestParameters.gojekCountryCode, requestParameters.xUniqueid, requestParameters.xAppversion, requestParameters.xAppid, requestParameters.xDeviceos, requestParameters.xUserType, requestParameters.xPhonemake, requestParameters.xPhonemodel, requestParameters.xPushtokentype, requestParameters.xSessionId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

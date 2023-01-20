@@ -223,6 +223,313 @@ paths:
           name: service_type
           required: true
     parameters: []
+  /transport/v1/estimate:
+    get:
+      summary: GET transport estimate
+      operationId: getTransportEstimate
+      tags:
+        - transport
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: getTransportEstimateResponse
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      origin_service_area:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          country_code:
+                            type: string
+                          currency:
+                            type: string
+                          tz_name:
+                            type: string
+                      destination_service_area:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          country_code:
+                            type: string
+                          currency:
+                            type: string
+                          tz_name:
+                            type: string
+                      currency:
+                        type: string
+                      base_token:
+                        type: string
+                      business_booking:
+                        type: object
+                        properties:
+                          corporate_billing_applicable:
+                            type: boolean
+                          trip_profile_widget_enabled:
+                            type: boolean
+                          description:
+                            type: object
+                            properties:
+                              heading:
+                                type: string
+                              subheading:
+                                type: string
+                              cta_text:
+                                type: string
+                          onboarding:
+                            type: object
+                            properties:
+                              title:
+                                type: string
+                              subtitle:
+                                type: string
+                              terms:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    icon_url:
+                                      type: string
+                                    text:
+                                      type: string
+                              cta_text:
+                                type: string
+                      service_types:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            route:
+                              type: object
+                              properties:
+                                eta:
+                                  type: integer
+                                distance_in_meters:
+                                  type: integer
+                                polyline:
+                                  type: string
+                                route_type:
+                                  type: string
+                            id:
+                              type: integer
+                            service_type_details:
+                              type: object
+                              properties:
+                                description:
+                                  type: string
+                                should_show_benefits:
+                                  type: boolean
+                            insurance_details:
+                              type: object
+                              properties:
+                                trip_insured:
+                                  type: boolean
+                                title:
+                                  type: string
+                                cta_link:
+                                  type: string
+                            allocation_strategy:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                            allocation_strategies:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                            payment_methods:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  price_with_voucher:
+                                    type: integer
+                                  price_without_voucher:
+                                    type: integer
+                                  min_price_without_voucher:
+                                    type: integer
+                                  max_price_without_voucher:
+                                    type: integer
+                                  min_price_with_voucher:
+                                    type: integer
+                                  max_price_with_voucher:
+                                    type: integer
+                                  id:
+                                    type: integer
+                                  surge:
+                                    type: boolean
+                                  base_fare_with_voucher:
+                                    type: integer
+                                  base_fare_without_voucher:
+                                    type: integer
+                                  platform_fee:
+                                    type: integer
+                                  price_range:
+                                    type: object
+                                    properties:
+                                      subtract_with_voucher:
+                                        type: integer
+                                      subtract_without_voucher:
+                                        type: integer
+                            pricing_token:
+                              type: string
+                            pickup_eta:
+                              type: string
+                            applicable_upsell:
+                              type: array
+                              items:
+                                type: string
+                            service_provider:
+                              type: string
+                            success:
+                              type: string
+                      promotion:
+                        type: object
+                        properties:
+                          bubble:
+                            type: object
+                            properties:
+                              promotion_details:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    text:
+                                      type: string
+                                    cta_link:
+                                      type: string
+                                    cta_title:
+                                      type: string
+                                    payment_option:
+                                      type: string
+                                    service_type:
+                                      type: integer
+                                    bubble_type:
+                                      type: string
+                                    text_type:
+                                      type: string
+                              experiment_detail:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  variant:
+                                    type: string
+                          bubbles:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                promotion_details:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      text:
+                                        type: string
+                                      cta_link:
+                                        type: string
+                                      cta_title:
+                                        type: string
+                                      payment_option:
+                                        type: string
+                                      service_type:
+                                        type: integer
+                                      bubble_type:
+                                        type: string
+                                      text_type:
+                                        type: string
+                                experiment_detail:
+                                  type: object
+                                  properties:
+                                    name:
+                                      type: string
+                                    variant:
+                                      type: string
+                      disclaimer:
+                        type: object
+                        properties:
+                          message:
+                            type: string
+                      voucher_flow:
+                        type: string
+                      upsell:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                          description:
+                            type: string
+                          disclaimer:
+                            type: string
+                          types:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                title:
+                                  type: string
+                                description:
+                                  type: string
+                                opt_in:
+                                  type: boolean
+                                type:
+                                  type: string
+                                price:
+                                  type: string
+                                product_name:
+                                  type: string
+                                product_code:
+                                  type: string
+                                badge:
+                                  type: object
+                                  properties:
+                                    title:
+                                      type: string
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+        - $ref: '#/components/parameters/sessionId'
+        - schema:
+            type: boolean
+            example: true
+          in: query
+          name: send_prioritised_order
+          required: true
+        - schema:
+            type: number
+            default: 1
+          in: query
+          name: user_selected_service_type
+          required: true
+        - schema:
+            type: string
+            example: '-6.188912,106.738236|-6.184608,106.736176'
+          in: query
+          name: waypoints
+          required: true
+          description: 'pickup coordinate | dropoff coodinate. Example: -6.188912,106.738236|-6.184608,106.736176'
+    parameters: []
 components:
   parameters:
     appVersion:
