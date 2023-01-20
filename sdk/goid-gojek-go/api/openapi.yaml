@@ -1,0 +1,457 @@
+openapi: 3.0.0
+info:
+  title: goid.gojekapi.com
+  version: 1.0.0
+servers:
+- description: GoID server
+  url: https://goid.gojekapi.com
+paths:
+  /goid/login/request:
+    post:
+      description: Request OTP to whatsapp or SMS
+      operationId: loginRequest
+      parameters:
+      - explode: false
+        in: header
+        name: x-appversion
+        required: false
+        schema:
+          default: 4.59.1
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-appid
+        required: false
+        schema:
+          default: com.gojek.app
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-deviceos
+        required: false
+        schema:
+          default: Android,10
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-user-type
+        required: false
+        schema:
+          default: customer
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-phonemake
+        required: false
+        schema:
+          default: Samsung
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-phonemodel
+        required: false
+        schema:
+          default: GT-S7500
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-pushtokentype
+        required: false
+        schema:
+          default: FCM
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-platform
+        required: false
+        schema:
+          default: Android
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-uniqueid
+        required: false
+        schema:
+          default: 95f99ddd6a5d34a9
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/loginRequestBody'
+        content:
+          application/json:
+            schema:
+              properties:
+                client_id:
+                  default: gojek:consumer:app
+                  type: string
+                client_secret:
+                  default: pGwQ7oi8bKqqwvid09UrjqpkMEHklb
+                  type: string
+                country_code:
+                  default: +62
+                  type: string
+                login_type:
+                  default: otp_whatsapp
+                  type: string
+                magic_link_ref:
+                  type: string
+                phone_number:
+                  type: string
+              title: loginRequestBody
+              type: object
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/loginRequestResponse'
+      summary: POST request
+      tags:
+      - token
+  /goid/token:
+    post:
+      description: Generate authentication token from OTP
+      operationId: generateToken
+      parameters:
+      - explode: false
+        in: header
+        name: x-appversion
+        required: false
+        schema:
+          default: 4.59.1
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-appid
+        required: false
+        schema:
+          default: com.gojek.app
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-deviceos
+        required: false
+        schema:
+          default: Android,10
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-user-type
+        required: false
+        schema:
+          default: customer
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-phonemake
+        required: false
+        schema:
+          default: Samsung
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-phonemodel
+        required: false
+        schema:
+          default: GT-S7500
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-pushtokentype
+        required: false
+        schema:
+          default: FCM
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-platform
+        required: false
+        schema:
+          default: Android
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-uniqueid
+        required: false
+        schema:
+          default: 95f99ddd6a5d34a9
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/generateTokenRequest'
+        content:
+          application/json:
+            schema:
+              properties:
+                client_id:
+                  default: gojek:consumer:app
+                  type: string
+                client_secret:
+                  default: pGwQ7oi8bKqqwvid09UrjqpkMEHklb
+                  type: string
+                data:
+                  $ref: '#/components/schemas/_goid_token_data'
+                grant_type:
+                  default: otp
+                  example: otp
+                  type: string
+                scopes:
+                  items: {}
+                  type: array
+              title: generateTokenRequest
+              type: object
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generateTokenResponse'
+      summary: POST token
+      tags:
+      - token
+components:
+  parameters:
+    appVersion:
+      explode: false
+      in: header
+      name: x-appversion
+      required: false
+      schema:
+        default: 4.59.1
+        type: string
+      style: simple
+    appId:
+      explode: false
+      in: header
+      name: x-appid
+      required: false
+      schema:
+        default: com.gojek.app
+        type: string
+      style: simple
+    deviceOs:
+      explode: false
+      in: header
+      name: x-deviceos
+      required: false
+      schema:
+        default: Android,10
+        type: string
+      style: simple
+    userType:
+      explode: false
+      in: header
+      name: x-user-type
+      required: false
+      schema:
+        default: customer
+        type: string
+      style: simple
+    phoneMake:
+      explode: false
+      in: header
+      name: x-phonemake
+      required: false
+      schema:
+        default: Samsung
+        type: string
+      style: simple
+    phoneModel:
+      explode: false
+      in: header
+      name: x-phonemodel
+      required: false
+      schema:
+        default: GT-S7500
+        type: string
+      style: simple
+    pushTokenType:
+      explode: false
+      in: header
+      name: x-pushtokentype
+      required: false
+      schema:
+        default: FCM
+        type: string
+      style: simple
+    platform:
+      explode: false
+      in: header
+      name: x-platform
+      required: false
+      schema:
+        default: Android
+        type: string
+      style: simple
+    uniqueId:
+      explode: false
+      in: header
+      name: x-uniqueid
+      required: false
+      schema:
+        default: 95f99ddd6a5d34a9
+        type: string
+      style: simple
+  requestBodies:
+    loginRequestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/loginRequestBody'
+    generateTokenRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generateTokenRequest'
+  schemas:
+    loginRequestResponse_data_next_state:
+      example:
+        destination: destination
+        timer_in_seconds: 1.4658129805029452
+        state: state
+      properties:
+        state:
+          type: string
+        destination:
+          type: string
+        timer_in_seconds:
+          type: number
+      type: object
+    loginRequestBody:
+      properties:
+        client_id:
+          default: gojek:consumer:app
+          type: string
+        client_secret:
+          default: pGwQ7oi8bKqqwvid09UrjqpkMEHklb
+          type: string
+        country_code:
+          default: +62
+          type: string
+        login_type:
+          default: otp_whatsapp
+          type: string
+        magic_link_ref:
+          type: string
+        phone_number:
+          type: string
+      title: loginRequestBody
+      type: object
+    loginRequestResponse_data:
+      example:
+        next_state:
+          destination: destination
+          timer_in_seconds: 1.4658129805029452
+          state: state
+        otp_token: otp_token
+        otp_length: 6.027456183070403
+        otp_expires_in: 0.8008281904610115
+      properties:
+        otp_token:
+          type: string
+        otp_expires_in:
+          type: number
+        otp_length:
+          type: number
+        next_state:
+          $ref: '#/components/schemas/loginRequestResponse_data_next_state'
+      type: object
+    _goid_token_data:
+      properties:
+        otp:
+          description: OTP from whatsapp or SMS
+          example: "1049"
+          type: string
+        otp_token:
+          description: OTP token from login request
+          example: 2dee3ede-f329-4d27-802d-754205e38a22
+          type: string
+      type: object
+    generateTokenResponse:
+      example:
+        access_token: access_token
+        refresh_token: refresh_token
+        dbl_enabled: true
+        flags:
+          onetap_eligible: true
+          is_app_pin_set: true
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+        dbl_enabled:
+          type: boolean
+        flags:
+          $ref: '#/components/schemas/generateTokenResponse_flags'
+      title: generateTokenResponse
+      type: object
+    loginRequestResponse:
+      example:
+        data:
+          next_state:
+            destination: destination
+            timer_in_seconds: 1.4658129805029452
+            state: state
+          otp_token: otp_token
+          otp_length: 6.027456183070403
+          otp_expires_in: 0.8008281904610115
+        success: true
+        errors:
+        - ""
+        - ""
+      properties:
+        data:
+          $ref: '#/components/schemas/loginRequestResponse_data'
+        success:
+          type: boolean
+        errors:
+          items: {}
+          type: array
+      title: loginRequestResponse
+      type: object
+    generateTokenRequest:
+      properties:
+        client_id:
+          default: gojek:consumer:app
+          type: string
+        client_secret:
+          default: pGwQ7oi8bKqqwvid09UrjqpkMEHklb
+          type: string
+        data:
+          $ref: '#/components/schemas/_goid_token_data'
+        grant_type:
+          default: otp
+          example: otp
+          type: string
+        scopes:
+          items: {}
+          type: array
+      title: generateTokenRequest
+      type: object
+    generateTokenResponse_flags:
+      example:
+        onetap_eligible: true
+        is_app_pin_set: true
+      properties:
+        onetap_eligible:
+          type: boolean
+        is_app_pin_set:
+          type: boolean
+      type: object

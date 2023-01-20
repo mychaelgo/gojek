@@ -1,0 +1,208 @@
+openapi: 3.0.0
+info:
+  title: goid.gojekapi.com
+  version: 1.0.0
+servers:
+  - url: 'https://goid.gojekapi.com'
+    description: GoID server
+paths:
+  /goid/login/request:
+    post:
+      summary: POST request
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: loginRequestResponse
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      otp_token:
+                        type: string
+                      otp_expires_in:
+                        type: number
+                      otp_length:
+                        type: number
+                      next_state:
+                        type: object
+                        properties:
+                          state:
+                            type: string
+                          destination:
+                            type: string
+                          timer_in_seconds:
+                            type: number
+                  success:
+                    type: boolean
+                  errors:
+                    type: array
+                    items: {}
+      parameters:
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/uniqueId'
+      operationId: loginRequest
+      description: Request OTP to whatsapp or SMS
+      tags:
+        - token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: loginRequestBody
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  default: 'gojek:consumer:app'
+                client_secret:
+                  type: string
+                  default: pGwQ7oi8bKqqwvid09UrjqpkMEHklb
+                country_code:
+                  type: string
+                  default: '+62'
+                login_type:
+                  type: string
+                  default: otp_whatsapp
+                  description: 'possible value: otp_whatsapp, sms'
+                magic_link_ref:
+                  type: string
+                phone_number:
+                  type: string
+        description: ''
+  /goid/token:
+    post:
+      summary: POST token
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: generateTokenResponse
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+                  dbl_enabled:
+                    type: boolean
+                  flags:
+                    type: object
+                    properties:
+                      onetap_eligible:
+                        type: boolean
+                      is_app_pin_set:
+                        type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: generateTokenRequest
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  default: 'gojek:consumer:app'
+                client_secret:
+                  type: string
+                  default: pGwQ7oi8bKqqwvid09UrjqpkMEHklb
+                data:
+                  type: object
+                  properties:
+                    otp:
+                      type: string
+                      example: '1049'
+                      description: OTP from whatsapp or SMS
+                    otp_token:
+                      type: string
+                      example: 2dee3ede-f329-4d27-802d-754205e38a22
+                      description: OTP token from login request
+                grant_type:
+                  type: string
+                  example: otp
+                  default: otp
+                scopes:
+                  type: array
+                  items: {}
+      parameters:
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/uniqueId'
+      operationId: generateToken
+      description: Generate authentication token from OTP
+      tags:
+        - token
+components:
+  parameters:
+    appVersion:
+      name: x-appversion
+      in: header
+      schema:
+        type: string
+        default: 4.59.1
+    appId:
+      name: x-appid
+      in: header
+      schema:
+        type: string
+        default: com.gojek.app
+    deviceOs:
+      name: x-deviceos
+      in: header
+      schema:
+        type: string
+        default: 'Android,10'
+    userType:
+      name: x-user-type
+      in: header
+      schema:
+        type: string
+        default: customer
+    phoneMake:
+      name: x-phonemake
+      in: header
+      schema:
+        type: string
+        default: Samsung
+    phoneModel:
+      name: x-phonemodel
+      in: header
+      schema:
+        type: string
+        default: GT-S7500
+    pushTokenType:
+      name: x-pushtokentype
+      in: header
+      schema:
+        type: string
+        default: FCM
+    platform:
+      name: x-platform
+      in: header
+      schema:
+        type: string
+        default: Android
+    uniqueId:
+      name: x-uniqueid
+      in: header
+      schema:
+        type: string
+        default: 95f99ddd6a5d34a9
