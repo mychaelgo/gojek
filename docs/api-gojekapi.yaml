@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: api.gojekapi
-  version: 1.0.0
+  version: 1.0.1
 servers:
   - url: 'https://api.gojekapi.com'
     description: api.gojekapi
@@ -187,17 +187,6 @@ paths:
                         items:
                           type: object
                           properties: {}
-                x-examples:
-                  Example 1:
-                    data:
-                      type: reverse_geocode
-                      source_location:
-                        place_id: GOOG-ChIJRVypzLf5aS4RBiq7S-HTyFk
-                        name: Jl. Asia 2 No.70
-                        address: 'Jl. Asia 2 No.70, RT.002/RW.006, Gondrong, Kec. Cipondoh, Kota Tangerang, Banten 15146, Indonesia'
-                        image_url: 'https://api.gojekapi.com/maps/api/place/ChIJRVypzLf5aS4RBiq7S-HTyFk/photo'
-                        suggested_visibility_radius: 99.67157647348982
-                      places: []
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/gojekCountryCode'
@@ -530,6 +519,57 @@ paths:
           required: true
           description: 'pickup coordinate | dropoff coodinate. Example: -6.188912,106.738236|-6.184608,106.736176'
     parameters: []
+  '/v3/bookings/{booking_id}/cancel':
+    put:
+      summary: Cancel booking
+      operationId: cancelBooking
+      tags:
+        - transport
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+        - $ref: '#/components/parameters/sessionId'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                cancel_reason_id:
+                  type: integer
+              required:
+                - cancel_reason_id
+        description: ''
+      description: cancel booking
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: cancelBookingResponse
+                type: object
+                properties:
+                  order_number:
+                    type: string
+                  message:
+                    type: string
+                  success:
+                    type: boolean
+    parameters:
+      - schema:
+          type: string
+        name: booking_id
+        in: path
+        required: true
 components:
   parameters:
     appVersion:
