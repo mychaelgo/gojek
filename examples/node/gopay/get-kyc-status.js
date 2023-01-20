@@ -1,10 +1,10 @@
-const { PaymentApi, Configuration } = require('../../../sdk/gopay-gojek-node');
+const { UserApi, Configuration } = require('../../../sdk/gopay-gojek-node');
 
 const configuration = new Configuration({
     accessToken: process.env.GOJEK_ACCESS_TOKEN
 });
 
-const paymentAPI = new PaymentApi(configuration);
+const userAPI = new UserApi(configuration);
 
 const defaultHeaders = {
     xAppid: 'com.gojek.app',
@@ -19,13 +19,13 @@ const defaultHeaders = {
     gojekCountryCode: 'ID'
 };
 
-const testGetBalances = async () => {
+const testGetKycStatus = async () => {
     
-    const getBalancesResponse = await paymentAPI.getBalances({
-        ...defaultHeaders,
+    const getUserKycStatusResponse = await userAPI.getUserKycStatus({
+        ...defaultHeaders
     });
 
-    console.log(JSON.stringify(getBalancesResponse.data));
+    console.log(JSON.stringify(getUserKycStatusResponse.data));
 };
 
-testGetBalances();
+testGetKycStatus();

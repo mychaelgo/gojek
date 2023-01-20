@@ -1,7 +1,7 @@
 const { BankAccountApi, Configuration } = require('../../../sdk/gopay-gojek-node');
 
 const configuration = new Configuration({
-    accessToken: 'ey...'
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
 });
 
 const bankAccountAPI = new BankAccountApi(configuration);
@@ -29,7 +29,7 @@ const testGetBankAccount = async () => {
         showWithdrawalBlockStatus: true,
         sortBy: 'last_used_at'
     });
-    
+
     console.log(JSON.stringify(bankAccountResponse.data));
 };
 

@@ -3,6 +3,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Get balances](#get-balances)
+- [Get KYC status](#get-kyc-status)
 - [Get bank accounts](#get-bank-accounts)
 
 # Get balances
@@ -13,7 +14,7 @@ Return list of balances
 const { PaymentApi, Configuration } = require('../../../sdk/gopay-gojek-node');
 
 const configuration = new Configuration({
-    accessToken: 'ey...'
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
 });
 
 const paymentAPI = new PaymentApi(configuration);
@@ -68,6 +69,69 @@ testGetBalances();
 }
 ```
 
+# Get KYC status
+
+Get user KYC status
+
+```js
+const { UserApi, Configuration } = require('../../../sdk/gopay-gojek-node');
+
+const configuration = new Configuration({
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
+});
+
+const userAPI = new UserApi(configuration);
+
+const defaultHeaders = {
+    xAppid: 'com.gojek.app',
+    xAppversion: '4.59.1',
+    xDeviceos: 'Android,10',
+    xPhonemake: 'Samsung',
+    xPhonemodel: 'GT-S7500',
+    xPlatform: 'Android',
+    xPushtokentype: 'FCM',
+    xUniqueid: '95f99ddd6a5d34a9',
+    xUserType: 'customer',
+    gojekCountryCode: 'ID'
+};
+
+const testGetKycStatus = async () => {
+    
+    const getUserKycStatusResponse = await userAPI.getUserKycStatus({
+        ...defaultHeaders
+    });
+
+    console.log(JSON.stringify(getUserKycStatusResponse.data));
+};
+
+testGetKycStatus();
+```
+
+```json
+{
+ "data": {
+  "status": "APPROVED",
+  "files": [{
+   "id": "...",
+   "kyc_type": "KYC_PROOF",
+   "kyc_status": "APPROVED",
+   "kyc_reason_title": "Your GoPay Plus upgrade has failed",
+   "kyc_reason": "Something went wrong, but we're already on it. Please retake your ID card and selfie photos.",
+   "uploaded": true
+  }, {
+   "id": "...",
+   "kyc_type": "SELFIE",
+   "kyc_status": "APPROVED",
+   "kyc_reason_title": "Your GoPay Plus upgrade has failed",
+   "kyc_reason": "Something went wrong, but we're already on it. Please retake your ID card and selfie photos.",
+   "uploaded": true
+  }]
+ },
+ "success": true,
+ "errors": []
+}
+```
+
 # Get bank accounts
 
 Return list of bank accounts
@@ -76,7 +140,7 @@ Return list of bank accounts
 const { BankAccountApi, Configuration } = require('../../../sdk/gopay-gojek-node');
 
 const configuration = new Configuration({
-    accessToken: 'ey...'
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
 });
 
 const bankAccountAPI = new BankAccountApi(configuration);
