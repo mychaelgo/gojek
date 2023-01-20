@@ -1,0 +1,35 @@
+name: Publish Gojek API Node to Github Package Registry
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - sdk/api-gojek-node/**
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        registry-url: https://npm.pkg.github.com/
+
+    - name: Install dependencies
+      working-directory: sdk/api-gojek-node
+      run: npm i
+
+    - name: Publish package
+      run: npm publish
+      working-directory: sdk/api-gojek-node
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

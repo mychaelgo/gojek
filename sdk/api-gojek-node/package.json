@@ -1,0 +1,31 @@
+{
+  "name": "@mychaelgo/api-gojek",
+  "version": "1.0.0",
+  "description": "OpenAPI client for @mychaelgo/api-gojek",
+  "author": "OpenAPI-Generator Contributors",
+  "keywords": [
+    "axios",
+    "typescript",
+    "openapi-client",
+    "openapi-generator",
+    "@mychaelgo/api-gojek"
+  ],
+  "license": "Unlicense",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --outDir dist/",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^0.21.4"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.5",
+    "typescript": "^3.6.4"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+, "repository": { "type": "git", "url": "git+https://github.com/mychaelgo/gojek.git" }
+}

@@ -1,0 +1,141 @@
+openapi: 3.0.0
+info:
+  title: api.gojekapi
+  version: 1.0.0
+servers:
+  - url: 'https://api.gojekapi.com'
+    description: api.gojekapi
+paths:
+  /gojek/v2/customer:
+    get:
+      summary: GET customer
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  customer:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      phone:
+                        type: string
+                      number:
+                        type: string
+                      signed_up_country:
+                        type: string
+                      country_code:
+                        type: string
+                      email_verified:
+                        type: boolean
+                      locale:
+                        type: string
+                      locale_selection_type:
+                        type: string
+                      facebook_connected:
+                        type: boolean
+                      chat_id:
+                        type: object
+                      chat_token:
+                        type: object
+                      created_at:
+                        type: string
+                      bio:
+                        type: object
+                      profile_image_url:
+                        type: object
+      operationId: getCustomerData
+      tags:
+        - customer
+components:
+  parameters:
+    appVersion:
+      name: x-appversion
+      in: header
+      schema:
+        type: string
+        default: 4.59.1
+    appId:
+      name: x-appid
+      in: header
+      schema:
+        type: string
+        default: com.gojek.app
+    deviceOs:
+      name: x-deviceos
+      in: header
+      schema:
+        type: string
+        default: 'Android,10'
+    userType:
+      name: x-user-type
+      in: header
+      schema:
+        type: string
+        default: customer
+    phoneMake:
+      name: x-phonemake
+      in: header
+      schema:
+        type: string
+        default: Samsung
+    phoneModel:
+      name: x-phonemodel
+      in: header
+      schema:
+        type: string
+        default: GT-S7500
+    pushTokenType:
+      name: x-pushtokentype
+      in: header
+      schema:
+        type: string
+        default: FCM
+    platform:
+      name: x-platform
+      in: header
+      schema:
+        type: string
+        default: Android
+    uniqueId:
+      name: x-uniqueid
+      in: header
+      schema:
+        type: string
+        default: 95f99ddd6a5d34a9
+    gojekCountryCode:
+      name: gojek-country-code
+      in: header
+      required: false
+      schema:
+        type: string
+        default: ID
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+security:
+  - bearerToken: []
