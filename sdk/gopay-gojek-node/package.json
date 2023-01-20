@@ -1,6 +1,6 @@
 {
   "name": "@mychaelgo/gopay-gojek",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OpenAPI client for @mychaelgo/gopay-gojek",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [

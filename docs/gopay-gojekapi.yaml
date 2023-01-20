@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: customer.gopayapi.com
-  version: 1.0.0
+  version: 1.0.1
 servers:
   - url: 'https://customer.gopayapi.com'
     description: GoPay server
@@ -540,6 +540,31 @@ paths:
         - $ref: '#/components/parameters/phoneMake'
         - $ref: '#/components/parameters/phoneModel'
         - $ref: '#/components/parameters/pushTokenType'
+        - schema:
+            type: number
+            default: 1
+          in: query
+          name: page
+        - schema:
+            type: number
+            default: 20
+          in: query
+          name: limit
+        - schema:
+            type: boolean
+            default: true
+          in: query
+          name: skip_in_progress
+        - schema:
+            type: string
+            example: '2016-08-18T03:36:47'
+          in: query
+          name: lower_bound
+        - schema:
+            type: string
+            default: '2023-01-01T07:00:00'
+          in: query
+          name: upper_bound
       operationId: getOrderHistory
       tags:
         - user

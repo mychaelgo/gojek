@@ -5,6 +5,7 @@
 - [Get balances](#get-balances)
 - [Get payment options](#get-payment-options)
 - [Get profile](#get-profile)
+- [Get order history](#get-order-history)
 - [Get KYC status](#get-kyc-status)
 - [Get bank accounts](#get-bank-accounts)
 - [Get filter config](#get-filter-config)
@@ -168,6 +169,114 @@ testGetUserProfile();
   "qr_id": "...",
   "blocked": false,
   "is_pin_setup": true
+ },
+ "success": true,
+ "errors": []
+}
+```
+
+# Get order history
+
+Return history of gojek transactions
+
+```js
+const { UserApi, Configuration } = require('../../../sdk/gopay-gojek-node');
+
+const configuration = new Configuration({
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
+});
+
+const userAPI = new UserApi(configuration);
+
+const defaultHeaders = {
+    xAppid: 'com.gojek.app',
+    xAppversion: '4.59.1',
+    xDeviceos: 'Android,10',
+    xPhonemake: 'Samsung',
+    xPhonemodel: 'GT-S7500',
+    xPlatform: 'Android',
+    xPushtokentype: 'FCM',
+    xUniqueid: '95f99ddd6a5d34a9',
+    xUserType: 'customer',
+    gojekCountryCode: 'ID'
+};
+
+const getOrderHistory = async () => {
+    
+    const getOrderHistoryResponse = await userAPI.getOrderHistory({
+        ...defaultHeaders,
+        page: 1,
+        limit: 20,
+        countryCode: 'ID'
+    });
+
+    console.log(JSON.stringify(getOrderHistoryResponse.data));
+};
+
+getOrderHistory();
+```
+
+```json
+{
+ "data": {
+  "in_progress": [],
+  "completed": [{
+   "group_key": "2023-01-10",
+   "items": [{
+    "order_id": "...",
+    "service_type": "P2P",
+    "status": "COMPLETED",
+    "display_status": "Completed",
+    "order_timestamp": "2023-01-10T01:02:03",
+    "order_image": "https://i.gojekapi.com/darkroom/nearby-cms-id/v2/images/6a0ac488-5bfa-41ce-8ca7-d53a6aa59930_type=p2p.png",
+    "description": "Sent to XXX",
+    "payment_type": "DEBIT",
+    "amount": {
+     "value": 123,
+     "currency": "IDR",
+     "display_value": "Rp123"
+    },
+    "payment_method_breakup": [{
+     "payment_method": "GOPAY_WALLET",
+     "payment_method_name": "GoPay",
+     "payment_method_image": "https://i.gojekapi.com/darkroom/nearby-cms-id/v2/images/33db65f6-be08-404f-ae2a-8df7cb33bded_GoPay.png",
+     "amount": {
+      "value": 123,
+      "currency": "IDR",
+      "display_value": "Rp123"
+     },
+     "payment_type": "DEBIT"
+    }],
+    "list_notes": "",
+    "detail_description": "Sent to XXX",
+    "detail_notes": "**********1234",
+    "detail_view_items": [{
+     "label": "Amount",
+     "value": "Rp123",
+     "separator": true,
+     "copyable": false
+    }],
+    "additional_details": {
+     "p2p_notes": ""
+    },
+    "not_have_details": false,
+    "expense_info": {
+     "category": {
+      "id": "...",
+      "description": "",
+      "title": "Transfer",
+      "icon_url": "https://i.gojekapi.com/darkroom/nearby-cms-id/v2/images/a75355cd-ea51-4d27-9718-2cec56d0930a_transfers@3x.png"
+     },
+     "is_expense": true,
+     "section_title": "Expense category",
+     "title": "Mark as an expense",
+     "description": "So this transaction will be recorded on your expense report.",
+     "info_icon": "commonSpotInformation"
+    }
+   }]
+  }],
+  "next": "/v1/users/order-history?country_code=ID&page=1&limit=20&lower_bound=2016-08-18T03%3A36%3A47&upper_bound=2023-01-01T07%3A00%3A00&skip_in_progress=true",
+  "info_cards": []
  },
  "success": true,
  "errors": []
