@@ -3,6 +3,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Get balances](#get-balances)
+- [Get balances](#get-balances-1)
 - [Get profile](#get-profile)
 - [Get KYC status](#get-kyc-status)
 - [Get bank accounts](#get-bank-accounts)
@@ -65,6 +66,58 @@ testGetBalances();
   "type": "GOPAY_COINS",
   "token": "ey...",
   "country_code": "ID"
+ }],
+ "success": true
+}
+```
+
+# Get balances
+
+Return list of balances
+
+```js
+const { PaymentApi, Configuration } = require('../../../sdk/gopay-gojek-node');
+
+const configuration = new Configuration({
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
+});
+
+const paymentAPI = new PaymentApi(configuration);
+
+const defaultHeaders = {
+    xAppid: 'com.gojek.app',
+    xAppversion: '4.59.1',
+    xDeviceos: 'Android,10',
+    xPhonemake: 'Samsung',
+    xPhonemodel: 'GT-S7500',
+    xPlatform: 'Android',
+    xPushtokentype: 'FCM',
+    xUniqueid: '95f99ddd6a5d34a9',
+    xUserType: 'customer',
+    gojekCountryCode: 'ID'
+};
+
+const testGetPaymentOptions = async () => {
+    
+    const getPaymentOptionsResponse = await paymentAPI.getPaymentOptions({
+        ...defaultHeaders
+    });
+
+    console.log(JSON.stringify(getPaymentOptionsResponse.data));
+};
+
+testGetPaymentOptions();
+```
+
+```json
+{
+ "data": [{
+  "type": "GOPAY_WALLET",
+  "additional_details": {
+   "kyc_name": "...",
+   "kyc_status": "APPROVED",
+   "group_id": "CGOJEK_KYC"
+  }
  }],
  "success": true
 }
