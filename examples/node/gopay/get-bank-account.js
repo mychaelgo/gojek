@@ -28,9 +28,9 @@ const testGetBankAccount = async () => {
         pageSize: 1,
         showWithdrawalBlockStatus: true,
         sortBy: 'last_used_at'
-    });  
-    console.log({ bankAccountResponse: bankAccountResponse.data });
-
+    });
+    
+    console.log(JSON.stringify(bankAccountResponse.data));
 };
 
 testGetBankAccount();
