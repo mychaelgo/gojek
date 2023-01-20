@@ -26,6 +26,7 @@ paths:
           content:
             application/json:
               schema:
+                title: getCustomerDataResponse
                 type: object
                 properties:
                   status:
@@ -70,6 +71,84 @@ paths:
       operationId: getCustomerData
       tags:
         - customer
+  /v1/pickup-spots:
+    get:
+      summary: GET pickup spots
+      operationId: getPickupSpots
+      tags:
+        - transport
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: getPickupSpotsResponse
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      source_location:
+                        type: object
+                        properties:
+                          place_id:
+                            type: string
+                          name:
+                            type: string
+                          address:
+                            type: string
+                          suggested_visibility_radius:
+                            type: number
+                      places:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            place_id:
+                              type: string
+                            name:
+                              type: string
+                            address:
+                              type: string
+                            latitude:
+                              type: number
+                            longitude:
+                              type: number
+                            distance_from_origin:
+                              type: number
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+        - $ref: '#/components/parameters/sessionId'
+        - schema:
+            type: string
+            example: '-6.188912,106.738236'
+          in: query
+          name: location
+          required: true
+        - schema:
+            type: number
+            default: 1
+          in: query
+          name: service_type
+          required: true
+        - schema:
+            type: string
+            default: map
+          in: query
+          name: source
+          required: true
 components:
   parameters:
     appVersion:
@@ -126,6 +205,12 @@ components:
       schema:
         type: string
         default: 95f99ddd6a5d34a9
+    sessionId:
+      name: x-session-id
+      in: header
+      schema:
+        type: string
+        default: d31cc210-a067-4d0d-a52f-199880ea8907
     gojekCountryCode:
       name: gojek-country-code
       in: header

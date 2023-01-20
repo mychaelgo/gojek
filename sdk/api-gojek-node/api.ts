@@ -24,130 +24,242 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 /**
  * 
  * @export
- * @interface InlineResponse200
+ * @interface GetCustomerDataResponse
  */
-export interface InlineResponse200 {
+export interface GetCustomerDataResponse {
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200
+     * @memberof GetCustomerDataResponse
      */
     'status'?: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200
+     * @memberof GetCustomerDataResponse
      */
     'message'?: string;
     /**
      * 
-     * @type {InlineResponse200Customer}
-     * @memberof InlineResponse200
+     * @type {GetCustomerDataResponseCustomer}
+     * @memberof GetCustomerDataResponse
      */
-    'customer'?: InlineResponse200Customer;
+    'customer'?: GetCustomerDataResponseCustomer;
 }
 /**
  * 
  * @export
- * @interface InlineResponse200Customer
+ * @interface GetCustomerDataResponseCustomer
  */
-export interface InlineResponse200Customer {
+export interface GetCustomerDataResponseCustomer {
     /**
      * 
      * @type {number}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'id'?: number;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'email'?: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'phone'?: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'number'?: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'signed_up_country'?: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'country_code'?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'email_verified'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'locale'?: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'locale_selection_type'?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'facebook_connected'?: boolean;
     /**
      * 
      * @type {object}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'chat_id'?: object;
     /**
      * 
      * @type {object}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'chat_token'?: object;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'created_at'?: string;
     /**
      * 
      * @type {object}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'bio'?: object;
     /**
      * 
      * @type {object}
-     * @memberof InlineResponse200Customer
+     * @memberof GetCustomerDataResponseCustomer
      */
     'profile_image_url'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface GetPickupSpotsResponse
+ */
+export interface GetPickupSpotsResponse {
+    /**
+     * 
+     * @type {GetPickupSpotsResponseData}
+     * @memberof GetPickupSpotsResponse
+     */
+    'data'?: GetPickupSpotsResponseData;
+}
+/**
+ * 
+ * @export
+ * @interface GetPickupSpotsResponseData
+ */
+export interface GetPickupSpotsResponseData {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetPickupSpotsResponseData
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {GetPickupSpotsResponseDataSourceLocation}
+     * @memberof GetPickupSpotsResponseData
+     */
+    'source_location'?: GetPickupSpotsResponseDataSourceLocation;
+    /**
+     * 
+     * @type {Array<GetPickupSpotsResponseDataPlaces>}
+     * @memberof GetPickupSpotsResponseData
+     */
+    'places'?: Array<GetPickupSpotsResponseDataPlaces>;
+}
+/**
+ * 
+ * @export
+ * @interface GetPickupSpotsResponseDataPlaces
+ */
+export interface GetPickupSpotsResponseDataPlaces {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetPickupSpotsResponseDataPlaces
+     */
+    'place_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetPickupSpotsResponseDataPlaces
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetPickupSpotsResponseDataPlaces
+     */
+    'address'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetPickupSpotsResponseDataPlaces
+     */
+    'latitude'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetPickupSpotsResponseDataPlaces
+     */
+    'longitude'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetPickupSpotsResponseDataPlaces
+     */
+    'distance_from_origin'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface GetPickupSpotsResponseDataSourceLocation
+ */
+export interface GetPickupSpotsResponseDataSourceLocation {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetPickupSpotsResponseDataSourceLocation
+     */
+    'place_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetPickupSpotsResponseDataSourceLocation
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetPickupSpotsResponseDataSourceLocation
+     */
+    'address'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetPickupSpotsResponseDataSourceLocation
+     */
+    'suggested_visibility_radius'?: number;
 }
 
 /**
@@ -266,7 +378,7 @@ export const CustomerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomerData(xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
+        async getCustomerData(xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCustomerDataResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomerData(xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -296,7 +408,7 @@ export const CustomerApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomerData(xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, options?: any): AxiosPromise<InlineResponse200> {
+        getCustomerData(xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, options?: any): AxiosPromise<GetCustomerDataResponse> {
             return localVarFp.getCustomerData(xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, options).then((request) => request(axios, basePath));
         },
     };
@@ -396,6 +508,318 @@ export class CustomerApi extends BaseAPI {
      */
     public getCustomerData(requestParameters: CustomerApiGetCustomerDataRequest = {}, options?: AxiosRequestConfig) {
         return CustomerApiFp(this.configuration).getCustomerData(requestParameters.xPlatform, requestParameters.gojekCountryCode, requestParameters.xUniqueid, requestParameters.xAppversion, requestParameters.xAppid, requestParameters.xDeviceos, requestParameters.xUserType, requestParameters.xPhonemake, requestParameters.xPhonemodel, requestParameters.xPushtokentype, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * TransportApi - axios parameter creator
+ * @export
+ */
+export const TransportApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary GET pickup spots
+         * @param {string} location 
+         * @param {number} serviceType 
+         * @param {string} source 
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPickupSpots: async (location: string, serviceType: number, source: string, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'location' is not null or undefined
+            assertParamExists('getPickupSpots', 'location', location)
+            // verify required parameter 'serviceType' is not null or undefined
+            assertParamExists('getPickupSpots', 'serviceType', serviceType)
+            // verify required parameter 'source' is not null or undefined
+            assertParamExists('getPickupSpots', 'source', source)
+            const localVarPath = `/v1/pickup-spots`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (location !== undefined) {
+                localVarQueryParameter['location'] = location;
+            }
+
+            if (serviceType !== undefined) {
+                localVarQueryParameter['service_type'] = serviceType;
+            }
+
+            if (source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+
+            if (xPlatform !== undefined && xPlatform !== null) {
+                localVarHeaderParameter['x-platform'] = String(xPlatform);
+            }
+
+            if (gojekCountryCode !== undefined && gojekCountryCode !== null) {
+                localVarHeaderParameter['gojek-country-code'] = String(gojekCountryCode);
+            }
+
+            if (xUniqueid !== undefined && xUniqueid !== null) {
+                localVarHeaderParameter['x-uniqueid'] = String(xUniqueid);
+            }
+
+            if (xAppversion !== undefined && xAppversion !== null) {
+                localVarHeaderParameter['x-appversion'] = String(xAppversion);
+            }
+
+            if (xAppid !== undefined && xAppid !== null) {
+                localVarHeaderParameter['x-appid'] = String(xAppid);
+            }
+
+            if (xDeviceos !== undefined && xDeviceos !== null) {
+                localVarHeaderParameter['x-deviceos'] = String(xDeviceos);
+            }
+
+            if (xUserType !== undefined && xUserType !== null) {
+                localVarHeaderParameter['x-user-type'] = String(xUserType);
+            }
+
+            if (xPhonemake !== undefined && xPhonemake !== null) {
+                localVarHeaderParameter['x-phonemake'] = String(xPhonemake);
+            }
+
+            if (xPhonemodel !== undefined && xPhonemodel !== null) {
+                localVarHeaderParameter['x-phonemodel'] = String(xPhonemodel);
+            }
+
+            if (xPushtokentype !== undefined && xPushtokentype !== null) {
+                localVarHeaderParameter['x-pushtokentype'] = String(xPushtokentype);
+            }
+
+            if (xSessionId !== undefined && xSessionId !== null) {
+                localVarHeaderParameter['x-session-id'] = String(xSessionId);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TransportApi - functional programming interface
+ * @export
+ */
+export const TransportApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TransportApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary GET pickup spots
+         * @param {string} location 
+         * @param {number} serviceType 
+         * @param {string} source 
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPickupSpots(location: string, serviceType: number, source: string, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPickupSpotsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPickupSpots(location, serviceType, source, xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, xSessionId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * TransportApi - factory interface
+ * @export
+ */
+export const TransportApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TransportApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary GET pickup spots
+         * @param {string} location 
+         * @param {number} serviceType 
+         * @param {string} source 
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPickupSpots(location: string, serviceType: number, source: string, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options?: any): AxiosPromise<GetPickupSpotsResponse> {
+            return localVarFp.getPickupSpots(location, serviceType, source, xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, xSessionId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getPickupSpots operation in TransportApi.
+ * @export
+ * @interface TransportApiGetPickupSpotsRequest
+ */
+export interface TransportApiGetPickupSpotsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly location: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly serviceType: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly source: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xPlatform?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly gojekCountryCode?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xUniqueid?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xAppversion?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xAppid?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xDeviceos?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xUserType?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xPhonemake?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xPhonemodel?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xPushtokentype?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetPickupSpots
+     */
+    readonly xSessionId?: string
+}
+
+/**
+ * TransportApi - object-oriented interface
+ * @export
+ * @class TransportApi
+ * @extends {BaseAPI}
+ */
+export class TransportApi extends BaseAPI {
+    /**
+     * 
+     * @summary GET pickup spots
+     * @param {TransportApiGetPickupSpotsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TransportApi
+     */
+    public getPickupSpots(requestParameters: TransportApiGetPickupSpotsRequest, options?: AxiosRequestConfig) {
+        return TransportApiFp(this.configuration).getPickupSpots(requestParameters.location, requestParameters.serviceType, requestParameters.source, requestParameters.xPlatform, requestParameters.gojekCountryCode, requestParameters.xUniqueid, requestParameters.xAppversion, requestParameters.xAppid, requestParameters.xDeviceos, requestParameters.xUserType, requestParameters.xPhonemake, requestParameters.xPhonemodel, requestParameters.xPushtokentype, requestParameters.xSessionId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
