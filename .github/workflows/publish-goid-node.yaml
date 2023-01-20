@@ -15,9 +15,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-    
-    - name: Change directory
-      run: cd sdk/goid-gojek-node
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -26,9 +23,11 @@ jobs:
         registry-url: https://npm.pkg.github.com/
 
     - name: Install dependencies
+      working-directory: sdk/goid-gojek-node
       run: npm i
 
     - name: Publish package
       run: npm publish
+      working-directory: sdk/goid-gojek-node
       env:
         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
