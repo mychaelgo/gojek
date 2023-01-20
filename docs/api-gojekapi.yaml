@@ -149,6 +149,80 @@ paths:
           in: query
           name: source
           required: true
+  /v1/dropoff-spots:
+    get:
+      summary: GET dropoff spots
+      operationId: getDropoffSpots
+      tags:
+        - transport
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: getDropoffSpotsResponse
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      source_location:
+                        type: object
+                        properties:
+                          place_id:
+                            type: string
+                          name:
+                            type: string
+                          address:
+                            type: string
+                          image_url:
+                            type: string
+                          suggested_visibility_radius:
+                            type: number
+                      places:
+                        type: array
+                        items:
+                          type: object
+                          properties: {}
+                x-examples:
+                  Example 1:
+                    data:
+                      type: reverse_geocode
+                      source_location:
+                        place_id: GOOG-ChIJRVypzLf5aS4RBiq7S-HTyFk
+                        name: Jl. Asia 2 No.70
+                        address: 'Jl. Asia 2 No.70, RT.002/RW.006, Gondrong, Kec. Cipondoh, Kota Tangerang, Banten 15146, Indonesia'
+                        image_url: 'https://api.gojekapi.com/maps/api/place/ChIJRVypzLf5aS4RBiq7S-HTyFk/photo'
+                        suggested_visibility_radius: 99.67157647348982
+                      places: []
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/gojekCountryCode'
+        - $ref: '#/components/parameters/uniqueId'
+        - $ref: '#/components/parameters/appVersion'
+        - $ref: '#/components/parameters/appId'
+        - $ref: '#/components/parameters/deviceOs'
+        - $ref: '#/components/parameters/userType'
+        - $ref: '#/components/parameters/phoneMake'
+        - $ref: '#/components/parameters/phoneModel'
+        - $ref: '#/components/parameters/pushTokenType'
+        - $ref: '#/components/parameters/sessionId'
+        - schema:
+            type: string
+            example: '-6.188912,106.738236'
+          in: query
+          name: location
+          required: true
+        - schema:
+            type: number
+            default: 1
+          in: query
+          name: service_type
+          required: true
+    parameters: []
 components:
   parameters:
     appVersion:

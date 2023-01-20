@@ -6,6 +6,7 @@
   - [Get customer data](#get-customer-data)
 - [Transport API](#transport-api)
   - [Get pickup spots](#get-pickup-spots)
+  - [Get dropoff spots](#get-dropoff-spots)
 
 # Customer API
 
@@ -141,6 +142,60 @@ getPickupSpots();
    "distance_from_origin": 70.81455891730323
   },
   ...]
+ }
+}
+```
+
+## Get dropoff spots
+
+```js
+const { TransportApi, Configuration } = require('../../../sdk/api-gojek-node');
+
+const configuration = new Configuration({
+    accessToken: process.env.GOJEK_ACCESS_TOKEN
+});
+
+const transportAPI = new TransportApi(configuration);
+
+const defaultHeaders = {
+    xAppid: 'com.gojek.app',
+    xAppversion: '4.59.1',
+    xDeviceos: 'Android,10',
+    xPhonemake: 'Samsung',
+    xPhonemodel: 'GT-S7500',
+    xPlatform: 'Android',
+    xPushtokentype: 'FCM',
+    xUniqueid: '95f99ddd6a5d34a9',
+    xUserType: 'customer',
+    xSessionId: 'd31cc210-a067-4d0d-a52f-199880ea8907',
+    gojekCountryCode: 'ID'
+};
+
+const getDropoffSpots = async () => {
+    
+    const getDropoffSpotsResponse = await transportAPI.getDropoffSpots({
+        ...defaultHeaders,
+        location: '-6.184608,106.736176',
+        serviceType: 1
+    });
+
+    console.log(JSON.stringify(getDropoffSpotsResponse.data));
+};
+
+getDropoffSpots();
+```
+
+```json
+{
+ "data": {
+  "type": "reverse_geocode",
+  "source_location": {
+   "place_id": "inhouse-portal:venue:PEGASUS-f0f284bd-c68a-4844-b71a-745b6c8a7233",
+   "name": "SPBU Shell - Depan Hotel Neo",
+   "address": "Jl. Kembangan Selatan No.8, Kembangan Utara, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11610, Indonesia",
+   "suggested_visibility_radius": 36.10426868588161
+  },
+  "places": []
  }
 }
 ```

@@ -152,6 +152,81 @@ export interface GetCustomerDataResponseCustomer {
 /**
  * 
  * @export
+ * @interface GetDropoffSpotsResponse
+ */
+export interface GetDropoffSpotsResponse {
+    /**
+     * 
+     * @type {GetDropoffSpotsResponseData}
+     * @memberof GetDropoffSpotsResponse
+     */
+    'data'?: GetDropoffSpotsResponseData;
+}
+/**
+ * 
+ * @export
+ * @interface GetDropoffSpotsResponseData
+ */
+export interface GetDropoffSpotsResponseData {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetDropoffSpotsResponseData
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {GetDropoffSpotsResponseDataSourceLocation}
+     * @memberof GetDropoffSpotsResponseData
+     */
+    'source_location'?: GetDropoffSpotsResponseDataSourceLocation;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof GetDropoffSpotsResponseData
+     */
+    'places'?: Array<object>;
+}
+/**
+ * 
+ * @export
+ * @interface GetDropoffSpotsResponseDataSourceLocation
+ */
+export interface GetDropoffSpotsResponseDataSourceLocation {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetDropoffSpotsResponseDataSourceLocation
+     */
+    'place_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetDropoffSpotsResponseDataSourceLocation
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetDropoffSpotsResponseDataSourceLocation
+     */
+    'address'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetDropoffSpotsResponseDataSourceLocation
+     */
+    'image_url'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetDropoffSpotsResponseDataSourceLocation
+     */
+    'suggested_visibility_radius'?: number;
+}
+/**
+ * 
+ * @export
  * @interface GetPickupSpotsResponse
  */
 export interface GetPickupSpotsResponse {
@@ -520,6 +595,109 @@ export const TransportApiAxiosParamCreator = function (configuration?: Configura
     return {
         /**
          * 
+         * @summary GET dropoff spots
+         * @param {string} location 
+         * @param {number} serviceType 
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDropoffSpots: async (location: string, serviceType: number, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'location' is not null or undefined
+            assertParamExists('getDropoffSpots', 'location', location)
+            // verify required parameter 'serviceType' is not null or undefined
+            assertParamExists('getDropoffSpots', 'serviceType', serviceType)
+            const localVarPath = `/v1/dropoff-spots`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (location !== undefined) {
+                localVarQueryParameter['location'] = location;
+            }
+
+            if (serviceType !== undefined) {
+                localVarQueryParameter['service_type'] = serviceType;
+            }
+
+            if (xPlatform !== undefined && xPlatform !== null) {
+                localVarHeaderParameter['x-platform'] = String(xPlatform);
+            }
+
+            if (gojekCountryCode !== undefined && gojekCountryCode !== null) {
+                localVarHeaderParameter['gojek-country-code'] = String(gojekCountryCode);
+            }
+
+            if (xUniqueid !== undefined && xUniqueid !== null) {
+                localVarHeaderParameter['x-uniqueid'] = String(xUniqueid);
+            }
+
+            if (xAppversion !== undefined && xAppversion !== null) {
+                localVarHeaderParameter['x-appversion'] = String(xAppversion);
+            }
+
+            if (xAppid !== undefined && xAppid !== null) {
+                localVarHeaderParameter['x-appid'] = String(xAppid);
+            }
+
+            if (xDeviceos !== undefined && xDeviceos !== null) {
+                localVarHeaderParameter['x-deviceos'] = String(xDeviceos);
+            }
+
+            if (xUserType !== undefined && xUserType !== null) {
+                localVarHeaderParameter['x-user-type'] = String(xUserType);
+            }
+
+            if (xPhonemake !== undefined && xPhonemake !== null) {
+                localVarHeaderParameter['x-phonemake'] = String(xPhonemake);
+            }
+
+            if (xPhonemodel !== undefined && xPhonemodel !== null) {
+                localVarHeaderParameter['x-phonemodel'] = String(xPhonemodel);
+            }
+
+            if (xPushtokentype !== undefined && xPushtokentype !== null) {
+                localVarHeaderParameter['x-pushtokentype'] = String(xPushtokentype);
+            }
+
+            if (xSessionId !== undefined && xSessionId !== null) {
+                localVarHeaderParameter['x-session-id'] = String(xSessionId);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary GET pickup spots
          * @param {string} location 
          * @param {number} serviceType 
@@ -640,6 +818,29 @@ export const TransportApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @summary GET dropoff spots
+         * @param {string} location 
+         * @param {number} serviceType 
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDropoffSpots(location: string, serviceType: number, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetDropoffSpotsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDropoffSpots(location, serviceType, xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, xSessionId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @summary GET pickup spots
          * @param {string} location 
          * @param {number} serviceType 
@@ -674,6 +875,28 @@ export const TransportApiFactory = function (configuration?: Configuration, base
     return {
         /**
          * 
+         * @summary GET dropoff spots
+         * @param {string} location 
+         * @param {number} serviceType 
+         * @param {string} [xPlatform] 
+         * @param {string} [gojekCountryCode] 
+         * @param {string} [xUniqueid] 
+         * @param {string} [xAppversion] 
+         * @param {string} [xAppid] 
+         * @param {string} [xDeviceos] 
+         * @param {string} [xUserType] 
+         * @param {string} [xPhonemake] 
+         * @param {string} [xPhonemodel] 
+         * @param {string} [xPushtokentype] 
+         * @param {string} [xSessionId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDropoffSpots(location: string, serviceType: number, xPlatform?: string, gojekCountryCode?: string, xUniqueid?: string, xAppversion?: string, xAppid?: string, xDeviceos?: string, xUserType?: string, xPhonemake?: string, xPhonemodel?: string, xPushtokentype?: string, xSessionId?: string, options?: any): AxiosPromise<GetDropoffSpotsResponse> {
+            return localVarFp.getDropoffSpots(location, serviceType, xPlatform, gojekCountryCode, xUniqueid, xAppversion, xAppid, xDeviceos, xUserType, xPhonemake, xPhonemodel, xPushtokentype, xSessionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary GET pickup spots
          * @param {string} location 
          * @param {number} serviceType 
@@ -697,6 +920,104 @@ export const TransportApiFactory = function (configuration?: Configuration, base
         },
     };
 };
+
+/**
+ * Request parameters for getDropoffSpots operation in TransportApi.
+ * @export
+ * @interface TransportApiGetDropoffSpotsRequest
+ */
+export interface TransportApiGetDropoffSpotsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly location: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly serviceType: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xPlatform?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly gojekCountryCode?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xUniqueid?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xAppversion?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xAppid?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xDeviceos?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xUserType?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xPhonemake?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xPhonemodel?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xPushtokentype?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TransportApiGetDropoffSpots
+     */
+    readonly xSessionId?: string
+}
 
 /**
  * Request parameters for getPickupSpots operation in TransportApi.
@@ -810,6 +1131,18 @@ export interface TransportApiGetPickupSpotsRequest {
  * @extends {BaseAPI}
  */
 export class TransportApi extends BaseAPI {
+    /**
+     * 
+     * @summary GET dropoff spots
+     * @param {TransportApiGetDropoffSpotsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TransportApi
+     */
+    public getDropoffSpots(requestParameters: TransportApiGetDropoffSpotsRequest, options?: AxiosRequestConfig) {
+        return TransportApiFp(this.configuration).getDropoffSpots(requestParameters.location, requestParameters.serviceType, requestParameters.xPlatform, requestParameters.gojekCountryCode, requestParameters.xUniqueid, requestParameters.xAppversion, requestParameters.xAppid, requestParameters.xDeviceos, requestParameters.xUserType, requestParameters.xPhonemake, requestParameters.xPhonemodel, requestParameters.xPushtokentype, requestParameters.xSessionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @summary GET pickup spots
