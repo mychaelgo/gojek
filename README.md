@@ -13,6 +13,8 @@ This repository contains 3 main API:
 
 you can see list of package [here](https://github.com/mychaelgo?tab=packages&repo_name=gojek)
 
+Part of my [personal finance automation](https://github.com/mychaelgo/personal-finances-automation)
+
 ## Documentation
 
 All API documented in [docs directory](docs/) with OpenAPI format v3.0
