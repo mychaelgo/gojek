@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace GoIdGojekPhp\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use GoIdGojekPhp\ApiException;
+use GoIdGojekPhp\Configuration;
+use GoIdGojekPhp\HeaderSelector;
+use GoIdGojekPhp\ObjectSerializer;
 
 /**
  * TokenApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -129,11 +129,11 @@ class TokenApi
      * @param  string $x_pushtokentype x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\GenerateTokenRequest $generate_token_request generate_token_request (optional)
+     * @param  \GoIdGojekPhp\Model\GenerateTokenRequest $generate_token_request generate_token_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \GoIdGojekPhp\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GenerateTokenResponse
+     * @return \GoIdGojekPhp\Model\GenerateTokenResponse
      */
     public function generateToken($x_appversion = '4.59.1', $x_appid = 'com.gojek.app', $x_deviceos = 'Android,10', $x_user_type = 'customer', $x_phonemake = 'Samsung', $x_phonemodel = 'GT-S7500', $x_pushtokentype = 'FCM', $x_platform = 'Android', $x_uniqueid = '95f99ddd6a5d34a9', $generate_token_request = null)
     {
@@ -155,11 +155,11 @@ class TokenApi
      * @param  string $x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\GenerateTokenRequest $generate_token_request (optional)
+     * @param  \GoIdGojekPhp\Model\GenerateTokenRequest $generate_token_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \GoIdGojekPhp\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GenerateTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GoIdGojekPhp\Model\GenerateTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateTokenWithHttpInfo($x_appversion = '4.59.1', $x_appid = 'com.gojek.app', $x_deviceos = 'Android,10', $x_user_type = 'customer', $x_phonemake = 'Samsung', $x_phonemodel = 'GT-S7500', $x_pushtokentype = 'FCM', $x_platform = 'Android', $x_uniqueid = '95f99ddd6a5d34a9', $generate_token_request = null)
     {
@@ -202,20 +202,20 @@ class TokenApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\GenerateTokenResponse' === '\SplFileObject') {
+                    if ('\GoIdGojekPhp\Model\GenerateTokenResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GenerateTokenResponse', []),
+                        ObjectSerializer::deserialize($content, '\GoIdGojekPhp\Model\GenerateTokenResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GenerateTokenResponse';
+            $returnType = '\GoIdGojekPhp\Model\GenerateTokenResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -233,7 +233,7 @@ class TokenApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GenerateTokenResponse',
+                        '\GoIdGojekPhp\Model\GenerateTokenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -257,7 +257,7 @@ class TokenApi
      * @param  string $x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\GenerateTokenRequest $generate_token_request (optional)
+     * @param  \GoIdGojekPhp\Model\GenerateTokenRequest $generate_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -286,14 +286,14 @@ class TokenApi
      * @param  string $x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\GenerateTokenRequest $generate_token_request (optional)
+     * @param  \GoIdGojekPhp\Model\GenerateTokenRequest $generate_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function generateTokenAsyncWithHttpInfo($x_appversion = '4.59.1', $x_appid = 'com.gojek.app', $x_deviceos = 'Android,10', $x_user_type = 'customer', $x_phonemake = 'Samsung', $x_phonemodel = 'GT-S7500', $x_pushtokentype = 'FCM', $x_platform = 'Android', $x_uniqueid = '95f99ddd6a5d34a9', $generate_token_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\GenerateTokenResponse';
+        $returnType = '\GoIdGojekPhp\Model\GenerateTokenResponse';
         $request = $this->generateTokenRequest($x_appversion, $x_appid, $x_deviceos, $x_user_type, $x_phonemake, $x_phonemodel, $x_pushtokentype, $x_platform, $x_uniqueid, $generate_token_request);
 
         return $this->client
@@ -341,7 +341,7 @@ class TokenApi
      * @param  string $x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\GenerateTokenRequest $generate_token_request (optional)
+     * @param  \GoIdGojekPhp\Model\GenerateTokenRequest $generate_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -473,11 +473,11 @@ class TokenApi
      * @param  string $x_pushtokentype x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\LoginRequestBody $login_request_body login_request_body (optional)
+     * @param  \GoIdGojekPhp\Model\LoginRequestBody $login_request_body login_request_body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \GoIdGojekPhp\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\LoginRequestResponse
+     * @return \GoIdGojekPhp\Model\LoginRequestResponse
      */
     public function loginRequest($x_appversion = '4.59.1', $x_appid = 'com.gojek.app', $x_deviceos = 'Android,10', $x_user_type = 'customer', $x_phonemake = 'Samsung', $x_phonemodel = 'GT-S7500', $x_pushtokentype = 'FCM', $x_platform = 'Android', $x_uniqueid = '95f99ddd6a5d34a9', $login_request_body = null)
     {
@@ -499,11 +499,11 @@ class TokenApi
      * @param  string $x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\LoginRequestBody $login_request_body (optional)
+     * @param  \GoIdGojekPhp\Model\LoginRequestBody $login_request_body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \GoIdGojekPhp\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\LoginRequestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GoIdGojekPhp\Model\LoginRequestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function loginRequestWithHttpInfo($x_appversion = '4.59.1', $x_appid = 'com.gojek.app', $x_deviceos = 'Android,10', $x_user_type = 'customer', $x_phonemake = 'Samsung', $x_phonemodel = 'GT-S7500', $x_pushtokentype = 'FCM', $x_platform = 'Android', $x_uniqueid = '95f99ddd6a5d34a9', $login_request_body = null)
     {
@@ -546,20 +546,20 @@ class TokenApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\LoginRequestResponse' === '\SplFileObject') {
+                    if ('\GoIdGojekPhp\Model\LoginRequestResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\LoginRequestResponse', []),
+                        ObjectSerializer::deserialize($content, '\GoIdGojekPhp\Model\LoginRequestResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\LoginRequestResponse';
+            $returnType = '\GoIdGojekPhp\Model\LoginRequestResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -577,7 +577,7 @@ class TokenApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\LoginRequestResponse',
+                        '\GoIdGojekPhp\Model\LoginRequestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -601,7 +601,7 @@ class TokenApi
      * @param  string $x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\LoginRequestBody $login_request_body (optional)
+     * @param  \GoIdGojekPhp\Model\LoginRequestBody $login_request_body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -630,14 +630,14 @@ class TokenApi
      * @param  string $x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\LoginRequestBody $login_request_body (optional)
+     * @param  \GoIdGojekPhp\Model\LoginRequestBody $login_request_body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function loginRequestAsyncWithHttpInfo($x_appversion = '4.59.1', $x_appid = 'com.gojek.app', $x_deviceos = 'Android,10', $x_user_type = 'customer', $x_phonemake = 'Samsung', $x_phonemodel = 'GT-S7500', $x_pushtokentype = 'FCM', $x_platform = 'Android', $x_uniqueid = '95f99ddd6a5d34a9', $login_request_body = null)
     {
-        $returnType = '\OpenAPI\Client\Model\LoginRequestResponse';
+        $returnType = '\GoIdGojekPhp\Model\LoginRequestResponse';
         $request = $this->loginRequestRequest($x_appversion, $x_appid, $x_deviceos, $x_user_type, $x_phonemake, $x_phonemodel, $x_pushtokentype, $x_platform, $x_uniqueid, $login_request_body);
 
         return $this->client
@@ -685,7 +685,7 @@ class TokenApi
      * @param  string $x_pushtokentype (optional, default to 'FCM')
      * @param  string $x_platform (optional, default to 'Android')
      * @param  string $x_uniqueid (optional, default to '95f99ddd6a5d34a9')
-     * @param  \OpenAPI\Client\Model\LoginRequestBody $login_request_body (optional)
+     * @param  \GoIdGojekPhp\Model\LoginRequestBody $login_request_body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

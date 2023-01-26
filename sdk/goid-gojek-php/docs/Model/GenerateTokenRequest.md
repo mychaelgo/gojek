@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_id** | **string** |  | [optional] [default to 'gojek:consumer:app']
 **client_secret** | **string** |  | [optional] [default to 'pGwQ7oi8bKqqwvid09UrjqpkMEHklb']
-**data** | [**\OpenAPI\Client\Model\GoidTokenData**](GoidTokenData.md) |  | [optional]
+**data** | [**\GoIdGojekPhp\Model\GoidTokenData**](GoidTokenData.md) |  | [optional]
 **grant_type** | **string** |  | [optional] [default to 'otp']
 **scopes** | **mixed[]** |  | [optional]
 

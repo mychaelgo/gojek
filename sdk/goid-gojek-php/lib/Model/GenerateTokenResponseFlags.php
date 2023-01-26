@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace GoIdGojekPhp\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \GoIdGojekPhp\ObjectSerializer;
 
 /**
  * GenerateTokenResponseFlags Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

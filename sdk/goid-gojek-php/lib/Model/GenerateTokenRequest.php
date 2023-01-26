@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace GoIdGojekPhp\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \GoIdGojekPhp\ObjectSerializer;
 
 /**
  * GenerateTokenRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class GenerateTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'client_id' => 'string',
         'client_secret' => 'string',
-        'data' => '\OpenAPI\Client\Model\GoidTokenData',
+        'data' => '\GoIdGojekPhp\Model\GoidTokenData',
         'grant_type' => 'string',
         'scopes' => 'mixed[]'
     ];
@@ -280,7 +280,7 @@ class GenerateTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\GoidTokenData|null
+     * @return \GoIdGojekPhp\Model\GoidTokenData|null
      */
     public function getData()
     {
@@ -290,7 +290,7 @@ class GenerateTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\GoidTokenData|null $data data
+     * @param \GoIdGojekPhp\Model\GoidTokenData|null $data data
      *
      * @return self
      */

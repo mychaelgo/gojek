@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace GoIdGojekPhp\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \GoIdGojekPhp\ObjectSerializer;
 
 /**
  * LoginRequestResponseData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class LoginRequestResponseData implements ModelInterface, ArrayAccess, \JsonSeri
         'otp_token' => 'string',
         'otp_expires_in' => 'float',
         'otp_length' => 'float',
-        'next_state' => '\OpenAPI\Client\Model\LoginRequestResponseDataNextState'
+        'next_state' => '\GoIdGojekPhp\Model\LoginRequestResponseDataNextState'
     ];
 
     /**
@@ -298,7 +298,7 @@ class LoginRequestResponseData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets next_state
      *
-     * @return \OpenAPI\Client\Model\LoginRequestResponseDataNextState|null
+     * @return \GoIdGojekPhp\Model\LoginRequestResponseDataNextState|null
      */
     public function getNextState()
     {
@@ -308,7 +308,7 @@ class LoginRequestResponseData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets next_state
      *
-     * @param \OpenAPI\Client\Model\LoginRequestResponseDataNextState|null $next_state next_state
+     * @param \GoIdGojekPhp\Model\LoginRequestResponseDataNextState|null $next_state next_state
      *
      * @return self
      */

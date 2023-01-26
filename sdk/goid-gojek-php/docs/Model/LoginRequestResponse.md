@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\OpenAPI\Client\Model\LoginRequestResponseData**](LoginRequestResponseData.md) |  | [optional]
+**data** | [**\GoIdGojekPhp\Model\LoginRequestResponseData**](LoginRequestResponseData.md) |  | [optional]
 **success** | **bool** |  | [optional]
 **errors** | **mixed[]** |  | [optional]
 

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace GoIdGojekPhp\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \GoIdGojekPhp\ObjectSerializer;
 
 /**
  * LoginRequestResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  GoIdGojekPhp
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class LoginRequestResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\LoginRequestResponseData',
+        'data' => '\GoIdGojekPhp\Model\LoginRequestResponseData',
         'success' => 'bool',
         'errors' => 'mixed[]'
     ];
@@ -220,7 +220,7 @@ class LoginRequestResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\LoginRequestResponseData|null
+     * @return \GoIdGojekPhp\Model\LoginRequestResponseData|null
      */
     public function getData()
     {
@@ -230,7 +230,7 @@ class LoginRequestResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\LoginRequestResponseData|null $data data
+     * @param \GoIdGojekPhp\Model\LoginRequestResponseData|null $data data
      *
      * @return self
      */
